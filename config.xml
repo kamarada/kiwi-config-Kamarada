@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<image schemaversion="6.1" name="openSUSE-13.2-livecd-kde" displayname="openSUSE_13.2_KDE_Live">
+  <description type="system">
+    <author>Stephan Kulow</author>
+    <contact>coolo@novell.com</contact>
+    <specification>openSUSE 13.2 Live system</specification>
+  </description>
+  <preferences>
+    <type primary="true" boot="isoboot/suse-13.2" bootprofile="default" bootkernel="std" filesystem="ext4" flags="overlay" hybrid="true" hybridpersistent="true" image="iso" editbootconfig="isopatch.sh" volid="openSUSE 13.2 KDE Live"/>
+    <version>2.8.0</version>
+    <bootloader-theme>openSUSE</bootloader-theme>
+    <bootsplash-theme>openSUSE</bootsplash-theme>
+    <packagemanager>zypper</packagemanager>
+    <rpm-check-signatures>false</rpm-check-signatures>
+    <rpm-force>false</rpm-force>
+    <locale>en_US</locale>
+    <rpm-excludedocs>false</rpm-excludedocs>
+  </preferences>
+  <users group="root">
+    <user name="root" password="" home="/root"/>
+  </users>
+  <packages type="image" patternType="onlyRequired">
+    <package name="gfxboot-branding-openSUSE" bootinclude="true" bootdelete="true"/>
+    <package name="grub2-branding-openSUSE" bootinclude="true"/>
+    <!-- workaround for bnc#892087 -->
+    <package name="e2fsprogs" bootinclude="true"/>
+    <package name="yast2-live-installer"/>
+    <package name="pam"/>
+    <package name="pam-config"/>
+    <package name="pam-modules"/>
+    <package name="udev"/>
+    <package name="aaa_base"/>
+    <package name="tar"/>
+    <package name="patch"/>
+    <package name="zypper"/>
+    <package name="package-lists-openSUSE-KDE-cd"/>
+  </packages>
+  <packages type="bootstrap">
+    <package name="filesystem"/>
+    <package name="bundle-lang-common-en"/>
+    <package name="openSUSE-release"/>
+    <package name="openSUSE-release-livecd-kde"/>
+    <package name="branding-openSUSE"/>
+  </packages>
+  <repository type="yast2">
+    <source path="http://download.opensuse.org/distribution/13.1/repo/oss/"/>
+  </repository>
+  <repository type="rpm-md">
+    <source path="http://download.opensuse.org/repositories/openSUSE:/13.1:/Live/standard/"/>
+  </repository>
+</image>
