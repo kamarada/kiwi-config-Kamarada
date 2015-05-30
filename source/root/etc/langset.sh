@@ -1,6 +1,6 @@
 #!/bin/sh
 
-lang=en_US
+lang=pt_BR
 for o in $(cat /proc/cmdline); do
     case $o in
        lang=*)
