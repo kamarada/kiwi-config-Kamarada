@@ -94,6 +94,8 @@ sed -i -e 's,^\(.*pam_gnome_keyring.so.*\),#\1,'  /etc/pam.d/common-auth-pc
 #USB /usr/bin/correct_live_for_reboot usb
 #USB /usr/bin/correct_live_install usb
 
+echo '127.0.0.1       kamarada-pc.workgroup kamarada-pc' >> /etc/hosts
+
 ln -s /usr/lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
 baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER_AUTOLOGIN kamarada
 baseUpdateSysConfig /etc/sysconfig/keyboard KEYTABLE br-abnt2.map.gz
@@ -111,3 +113,11 @@ baseUpdateSysConfig /etc/sysconfig/console CONSOLE_ENCODING "UTF-8"
 baseUpdateSysConfig /etc/sysconfig/yast2 WANTED_GUI qt
 baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER kdm4
 baseUpdateSysConfig /etc/sysconfig/windowmanager DEFAULT_WM kde-plasma
+
+#======================================
+# Firewall Configuration
+#--------------------------------------
+echo '** Configuring firewall...'
+chkconfig SuSEfirewall2_init on
+
+baseUpdateSysConfig /etc/sysconfig/network/config FIREWALL yes
