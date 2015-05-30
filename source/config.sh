@@ -104,6 +104,8 @@ baseUpdateSysConfig /etc/sysconfig/keyboard COMPOSETABLE "clear latin1.add"
 
 baseUpdateSysConfig /etc/sysconfig/language RC_LANG "pt_BR.UTF-8"
 
+cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
+
 baseUpdateSysConfig /etc/sysconfig/console CONSOLE_FONT "lat9w-16.psfu"
 baseUpdateSysConfig /etc/sysconfig/console CONSOLE_SCREENMAP trivial
 baseUpdateSysConfig /etc/sysconfig/console CONSOLE_MAGIC "(K"
