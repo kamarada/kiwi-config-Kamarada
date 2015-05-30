@@ -103,6 +103,7 @@ baseUpdateSysConfig /etc/sysconfig/keyboard YAST_KEYBOARD "portugese-br,pc104"
 baseUpdateSysConfig /etc/sysconfig/keyboard COMPOSETABLE "clear latin1.add"
 
 baseUpdateSysConfig /etc/sysconfig/language RC_LANG "pt_BR.UTF-8"
+baseUpdateSysConfig /etc/sysconfig/language ROOT_USES_LANG "yes"
 
 cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 
