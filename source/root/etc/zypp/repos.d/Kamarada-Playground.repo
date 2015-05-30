@@ -1,0 +1,7 @@
+[Kamarada-Playground]
+name=Kamarada-Playground
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/home:kamarada:Playground/openSUSE_13.2/
+type=rpm-md
+gpgcheck=1
