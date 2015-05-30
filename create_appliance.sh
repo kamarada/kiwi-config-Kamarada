@@ -11,7 +11,7 @@
 
 image_file='image/Kamarada_Linux_13.2.i686-0.0.1.raw'
 image_arch='i686'
-schema_ver='5.2'
+schema_ver='6.1'
 base_system='13.2'
 uefi_enabled='false'
 declare -a repos=()

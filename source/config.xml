@@ -6,8 +6,8 @@
     <specification>Kamarada Linux 13.2</specification>
   </description>
   <preferences>
-    <bootloader-theme>openSUSE</bootloader-theme>
-    <bootsplash-theme>openSUSE</bootsplash-theme>
+    <bootloader-theme>openSUSE</bootloader-theme><!-- TODO gfxboot-branding-Kamarada -->
+    <bootsplash-theme>Kamarada</bootsplash-theme>
     <hwclock>localtime</hwclock>
     <keytable>br-abnt2.map.gz</keytable>
     <locale>pt_BR</locale>
@@ -23,8 +23,9 @@
     <user name="root" password="" home="/root" shell='/bin/bash'/>
   </users>
   <packages type="image" patternType="onlyRequired">
-    <package name="gfxboot-branding-openSUSE" bootinclude="true" bootdelete="true"/>
-    <package name="grub2-branding-openSUSE" bootinclude="true"/>
+    <package name="gfxboot-branding-openSUSE" bootinclude="true" bootdelete="true"/><!-- TODO gfxboot-branding-Kamarada -->
+    <package name="grub2-branding-Kamarada" bootinclude="true"/>
+    <package name="plymouth-branding-Kamarada" bootinclude="true"/>
     <!-- workaround for bnc#892087 -->
     <package name="e2fsprogs" bootinclude="true"/>
     <package name="yast2-live-installer"/>
