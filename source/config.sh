@@ -63,26 +63,26 @@ rm /var/lib/livecd/geturls.sh
 sed -i -e "s/ALL ALL=(ALL) ALL/ALL ALL=(ALL) NOPASSWD: ALL/" /etc/sudoers 
 chmod 0440 /etc/sudoers
 
-/usr/sbin/useradd -m -u 999 linux -c "Live-CD User" -p ""
+/usr/sbin/useradd -m -u 999 kamarada -c "Usuário padrão" -p ""
 
 # delete passwords
 passwd -d root
-passwd -d linux
+passwd -d kamarada
 # empty password is ok
 pam-config -a --nullok
 
 : > /var/log/zypper.log
 
-mv /var/lib/livecd/*.pdf /home/linux || true
+mv /var/lib/livecd/*.pdf /home/kamarada || true
 rmdir /var/lib/livecd || true
 
-chown -R linux /home/linux
+chown -R kamarada /home/kamarada
 
 chkstat --system --set
 
 for script in /usr/share/opensuse-kiwi/live_user_scripts/*.sh; do
   if test -f $script; then
-     su - linux -c "/bin/bash $script"
+     su - kamarada -c "/bin/bash $script"
   fi
 done
 
@@ -95,7 +95,7 @@ sed -i -e 's,^\(.*pam_gnome_keyring.so.*\),#\1,'  /etc/pam.d/common-auth-pc
 #USB /usr/bin/correct_live_install usb
 
 ln -s /usr/lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
-baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER_AUTOLOGIN linux
+baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER_AUTOLOGIN kamarada
 baseUpdateSysConfig /etc/sysconfig/keyboard KEYTABLE br-abnt2.map.gz
 baseUpdateSysConfig /etc/sysconfig/keyboard YAST_KEYBOARD "portugese-br,pc104"
 baseUpdateSysConfig /etc/sysconfig/keyboard COMPOSETABLE "clear latin1.add"
@@ -110,3 +110,4 @@ baseUpdateSysConfig /etc/sysconfig/console CONSOLE_ENCODING "UTF-8"
 # bug 891183 yast2 live-installer --gtk segfaults
 baseUpdateSysConfig /etc/sysconfig/yast2 WANTED_GUI qt
 baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER kdm4
+baseUpdateSysConfig /etc/sysconfig/windowmanager DEFAULT_WM kde-plasma
