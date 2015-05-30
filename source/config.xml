@@ -41,7 +41,7 @@
   </packages>
   <packages type="bootstrap">
     <package name="filesystem"/>
-    <package name="bundle-lang-common-en"/>
+    <package name="bundle-lang-common-pt"/>
     <package name="openSUSE-release"/>
     <package name="openSUSE-release-livecd-kde"/>
     <package name="branding-openSUSE"/>

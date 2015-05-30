@@ -96,11 +96,11 @@ sed -i -e 's,^\(.*pam_gnome_keyring.so.*\),#\1,'  /etc/pam.d/common-auth-pc
 
 ln -s /usr/lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
 baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER_AUTOLOGIN linux
-baseUpdateSysConfig /etc/sysconfig/keyboard KEYTABLE us.map.gz
-baseUpdateSysConfig /etc/sysconfig/keyboard YAST_KEYBOARD "english-us,pc104"
+baseUpdateSysConfig /etc/sysconfig/keyboard KEYTABLE br-abnt2.map.gz
+baseUpdateSysConfig /etc/sysconfig/keyboard YAST_KEYBOARD "portugese-br,pc104"
 baseUpdateSysConfig /etc/sysconfig/keyboard COMPOSETABLE "clear latin1.add"
 
-baseUpdateSysConfig /etc/sysconfig/language RC_LANG "en_US.UTF-8"
+baseUpdateSysConfig /etc/sysconfig/language RC_LANG "pt_BR.UTF-8"
 
 baseUpdateSysConfig /etc/sysconfig/console CONSOLE_FONT "lat9w-16.psfu"
 baseUpdateSysConfig /etc/sysconfig/console CONSOLE_SCREENMAP trivial
