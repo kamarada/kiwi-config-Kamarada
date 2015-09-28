@@ -29,7 +29,38 @@
         <source path="http://download.opensuse.org/distribution/leap/42.1/repo/oss/"/>
     </repository>
     <packages type="image">
+        <namedCollection name="apparmor"/>
+        <namedCollection name="apparmor_opt"/>
         <namedCollection name="base"/>
+        <namedCollection name="enhanced_base"/>
+        <namedCollection name="enhanced_base_opt"/>
+        <namedCollection name="fonts"/>
+        <namedCollection name="fonts_opt"/>
+        <namedCollection name="games"/>
+        <namedCollection name="imaging"/>
+        <namedCollection name="imaging_opt"/>
+        <namedCollection name="kde"/>
+        <namedCollection name="kde_games"/>
+        <namedCollection name="kde_imaging"/>
+        <namedCollection name="kde_internet"/>
+        <namedCollection name="kde_multimedia"/>
+        <namedCollection name="kde_office"/>
+        <namedCollection name="kde_plasma"/>
+        <namedCollection name="kde_utilities"/>
+        <namedCollection name="kde_utilities_opt"/>
+        <namedCollection name="kde_yast"/>
+        <namedCollection name="multimedia"/>
+        <namedCollection name="multimedia_opt"/>
+        <namedCollection name="non_oss"/>
+        <namedCollection name="non_oss_opt"/>
+        <namedCollection name="office"/>
+        <namedCollection name="office_opt"/>
+        <namedCollection name="sw_management"/>
+        <namedCollection name="sw_management_kde"/>
+        <namedCollection name="x11"/>
+        <namedCollection name="x11_opt"/>
+        <namedCollection name="yast2_basis"/>
+
         <package name="plymouth-branding-openSUSE" bootinclude="true"/>
         <package name="grub2-branding-openSUSE" bootinclude="true"/>
         <package name="ifplugd"/>
