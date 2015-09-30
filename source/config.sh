@@ -62,6 +62,15 @@ baseMount
 # Setup baseproduct link
 suseSetupProduct
 
+# Enable/disable services
+for s in langset NetworkManager SuSEfirewall2; do
+    baseInsertService $s
+done
+
+for s in sshd cron wicked purge-kernels; do
+    baseRemoveService $s
+done
+
 # Add missing GPG keys to RPM
 suseImportBuildKey
 
@@ -71,9 +80,6 @@ for i in /rpmkeys/gpg*.asc; do
     rm $i
 done
 rmdir /rpmkeys
-
-# Activate services
-suseInsertService sshd
 
 # Setup default target, multi-user
 baseSetRunlevel 3
