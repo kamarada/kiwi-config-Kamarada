@@ -62,8 +62,15 @@ baseMount
 # Setup baseproduct link
 suseSetupProduct
 
-# Add missing gpg keys to rpm
+# Add missing GPG keys to RPM
 suseImportBuildKey
+
+for i in /rpmkeys/gpg*.asc; do 
+    # the import fails if kiwi already had this key
+    rpm --import $i || true
+    rm $i
+done
+rmdir /rpmkeys
 
 # Activate services
 suseInsertService sshd
@@ -76,20 +83,21 @@ rm -rf /usr/share/doc/packages/*
 rm -rf /usr/share/doc/manual/*
 rm -rf /opt/kde*
 
-# only basic version of vim is
-# installed; no syntax highlighting
-sed -i -e's/^syntax on/" syntax on/' /etc/vimrc
-
 # SuSEconfig
 suseConfig
 
-# Add leap repo
-baseRepo="http://download.opensuse.org/distribution/leap/42.1-Current/repo/oss"
-baseName="leap-42.1"
-zypper ar $baseRepo $baseName
+# Remove repository metadata
+rm -rf /var/cache/zypp/raw/*
 
-# Remove yast if not in use
-suseRemoveYaST
+# Add repositories
+bash -x /var/lib/livecd/geturls.sh
+rm /var/lib/livecd/geturls.sh
+
+# Clear zypper log
+: > /var/log/zypper.log
+
+# Clear package cache
+rm -rf /var/cache/zypp/packages
 
 #======================================
 # Umount kernel filesystems
