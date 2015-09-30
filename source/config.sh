@@ -93,6 +93,39 @@ rm -rf /var/cache/zypp/raw/*
 bash -x /var/lib/livecd/geturls.sh
 rm /var/lib/livecd/geturls.sh
 
+# /etc/sudoers hack to fix #297695 
+# (Installation Live CD: no need to ask for password of root)
+sed -i -e "s/ALL ALL=(ALL) ALL/ALL ALL=(ALL) NOPASSWD: ALL/" /etc/sudoers 
+chmod 0440 /etc/sudoers
+
+/usr/sbin/useradd -m -u 999 linux -c "Live-CD User" -p ""
+
+# Delete passwords
+passwd -d root
+passwd -d linux
+
+# Empty password is OK
+pam-config -a --nullok
+
+mv /var/lib/livecd/*.pdf /home/linux || true
+rmdir /var/lib/livecd || true
+
+chown -R linux /home/linux
+
+# Check and set file permissions
+chkstat --system --set
+
+for script in /usr/share/opensuse-kiwi/live_user_scripts/*.sh; do
+    if test -f $script; then
+        su - linux -c "/bin/bash $script"
+    fi
+done
+
+# bug 544314, we only want to disable the bit in common-auth-pc
+sed -i -e 's,^\(.*pam_gnome_keyring.so.*\),#\1,'  /etc/pam.d/common-auth-pc
+
+baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER_AUTOLOGIN linux
+
 # Clear zypper log
 : > /var/log/zypper.log
 

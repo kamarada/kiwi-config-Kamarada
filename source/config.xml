@@ -20,7 +20,7 @@
         <bootloader-theme>openSUSE</bootloader-theme>
     </preferences>
     <users group="root">
-        <user password="$1$wYJUgpM5$RXMMeASDc035eX.NbYWFl0" home="/root" name="root"/>
+        <user home="/root" name="root" password="" />
     </users>
     <!--openSUSE-Leap-Oss-->
     <repository type="yast2">
