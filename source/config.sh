@@ -147,7 +147,7 @@ baseUpdateSysConfig /etc/sysconfig/console CONSOLE_SCREENMAP trivial
 baseUpdateSysConfig /etc/sysconfig/console CONSOLE_MAGIC "(K"
 baseUpdateSysConfig /etc/sysconfig/console CONSOLE_ENCODING "UTF-8"
 
-baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER kdm4
+baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER sddm
 
 # baseUpdateSysConfig /etc/sysconfig/keyboard KEYTABLE us.map.gz
 baseUpdateSysConfig /etc/sysconfig/keyboard YAST_KEYBOARD "english-us,pc104"
