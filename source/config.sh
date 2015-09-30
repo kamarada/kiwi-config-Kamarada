@@ -66,11 +66,11 @@ suseSetupProduct
 mkdir /etc/langset
 
 for s in langset NetworkManager SuSEfirewall2; do
-    baseInsertService $s
+    systemctl -f enable $s
 done
 
 for s in sshd cron wicked purge-kernels; do
-    baseRemoveService $s
+    systemctl -f disable $s
 done
 
 cd /
