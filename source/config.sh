@@ -63,6 +63,8 @@ baseMount
 suseSetupProduct
 
 # Enable/disable services
+mkdir /etc/langset
+
 for s in langset NetworkManager SuSEfirewall2; do
     baseInsertService $s
 done
@@ -70,6 +72,11 @@ done
 for s in sshd cron wicked purge-kernels; do
     baseRemoveService $s
 done
+
+cd /
+if test -e /etc/YaST2/liveinstall.patch; then
+    patch -p0 < /etc/YaST2/liveinstall.patch
+fi
 
 # Add missing GPG keys to RPM
 suseImportBuildKey
@@ -80,9 +87,6 @@ for i in /rpmkeys/gpg*.asc; do
     rm $i
 done
 rmdir /rpmkeys
-
-# Setup default target, multi-user
-baseSetRunlevel 3
 
 # remove package docs
 rm -rf /usr/share/doc/packages/*
@@ -131,6 +135,28 @@ done
 sed -i -e 's,^\(.*pam_gnome_keyring.so.*\),#\1,'  /etc/pam.d/common-auth-pc
 
 baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER_AUTOLOGIN linux
+
+# Setup default target, with GUI
+baseSetRunlevel 5
+
+#USB /usr/bin/correct_live_for_reboot usb
+#USB /usr/bin/correct_live_install usb
+
+baseUpdateSysConfig /etc/sysconfig/console CONSOLE_FONT "lat9w-16.psfu"
+baseUpdateSysConfig /etc/sysconfig/console CONSOLE_SCREENMAP trivial
+baseUpdateSysConfig /etc/sysconfig/console CONSOLE_MAGIC "(K"
+baseUpdateSysConfig /etc/sysconfig/console CONSOLE_ENCODING "UTF-8"
+
+baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER kdm4
+
+# baseUpdateSysConfig /etc/sysconfig/keyboard KEYTABLE us.map.gz
+baseUpdateSysConfig /etc/sysconfig/keyboard YAST_KEYBOARD "english-us,pc104"
+baseUpdateSysConfig /etc/sysconfig/keyboard COMPOSETABLE "clear latin1.add"
+
+# baseUpdateSysConfig /etc/sysconfig/language RC_LANG "en_US.UTF-8"
+
+# bug 891183 yast2 live-installer --gtk segfaults
+baseUpdateSysConfig /etc/sysconfig/yast2 WANTED_GUI qt
 
 # Clear zypper log
 : > /var/log/zypper.log
