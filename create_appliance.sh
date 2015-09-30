@@ -9,7 +9,7 @@
 # Contact: feedback@susestudio.com
 # ============================================================================
 
-image_file='image/LimeJeOS-Leap-42.1.iso'
+image_file='image/openSUSE-Leap-42.1-KDE-Live-x86_64.iso'
 image_arch='x86_64'
 schema_ver='6.2'
 base_system='42.1'

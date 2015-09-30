@@ -125,11 +125,11 @@ chown -R linux /home/linux
 # Check and set file permissions
 chkstat --system --set
 
-for script in /usr/share/opensuse-kiwi/live_user_scripts/*.sh; do
-    if test -f $script; then
-        su - linux -c "/bin/bash $script"
-    fi
-done
+# for script in /usr/share/opensuse-kiwi/live_user_scripts/*.sh; do
+#     if test -f $script; then
+#         su - linux -c "/bin/bash $script"
+#     fi
+# done
 
 # bug 544314, we only want to disable the bit in common-auth-pc
 sed -i -e 's,^\(.*pam_gnome_keyring.so.*\),#\1,'  /etc/pam.d/common-auth-pc
