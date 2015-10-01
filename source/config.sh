@@ -167,7 +167,7 @@ rm -rf /var/cache/zypp/packages
 #======================================
 # Umount kernel filesystems
 #--------------------------------------
-baseCleanMount
+baseCleanMount || true
 
 #======================================
 # Exit safely
