@@ -30,16 +30,16 @@ test -f /.kconfig && . /.kconfig
 test -f /.profile && . /.profile
 
 # Exit immediately if a command exits with a non-zero status.
-set -e
+# set -e
 
 # Print commands and their arguments as they are executed.
-set -x
+# set -x
 
 # Create an empty file /var/log/config.log
-exec | tee /var/log/config.log
+# exec | tee /var/log/config.log
 
 # Redirect stderr of all commands to stdout
-exec 2>&1
+# exec 2>&1
 
 # Removes any package starting with package-lists-
 # pl=`rpmqpack | grep package-lists-` || true
@@ -63,30 +63,31 @@ baseMount
 suseSetupProduct
 
 # Enable/disable services
-mkdir /etc/langset
+# mkdir /etc/langset
 
-for s in langset NetworkManager SuSEfirewall2; do
-    systemctl -f enable $s
-done
+# for s in langset NetworkManager SuSEfirewall2; do
+#     systemctl -f enable $s
+# done
 
-for s in sshd cron wicked purge-kernels; do
-    systemctl -f disable $s
-done
+# for s in sshd cron wicked purge-kernels; do
+#     systemctl -f disable $s
+# done
+systemctl -f disable sshd
 
-cd /
-if test -e /etc/YaST2/liveinstall.patch; then
-    patch -p0 < /etc/YaST2/liveinstall.patch
-fi
+# cd /
+# if test -e /etc/YaST2/liveinstall.patch; then
+#     patch -p0 < /etc/YaST2/liveinstall.patch
+# fi
 
 # Add missing GPG keys to RPM
 suseImportBuildKey
 
-for i in /rpmkeys/gpg*.asc; do 
-    # the import fails if kiwi already had this key
-    rpm --import $i || true
-    rm $i
-done
-rmdir /rpmkeys
+# for i in /rpmkeys/gpg*.asc; do 
+#     # the import fails if kiwi already had this key
+#     rpm --import $i || true
+#     rm $i
+# done
+# rmdir /rpmkeys
 
 # remove package docs
 rm -rf /usr/share/doc/packages/*
@@ -97,7 +98,7 @@ rm -rf /opt/kde*
 suseConfig
 
 # Remove repository metadata
-rm -rf /var/cache/zypp/raw/*
+# rm -rf /var/cache/zypp/raw/*
 
 # Add repositories
 bash -x /var/lib/livecd/geturls.sh
@@ -117,7 +118,7 @@ passwd -d linux
 # Empty password is OK
 pam-config -a --nullok
 
-mv /var/lib/livecd/*.pdf /home/linux || true
+# mv /var/lib/livecd/*.pdf /home/linux || true
 rmdir /var/lib/livecd || true
 
 chown -R linux /home/linux
@@ -142,32 +143,32 @@ baseSetRunlevel 5
 #USB /usr/bin/correct_live_for_reboot usb
 #USB /usr/bin/correct_live_install usb
 
-baseUpdateSysConfig /etc/sysconfig/console CONSOLE_FONT "lat9w-16.psfu"
-baseUpdateSysConfig /etc/sysconfig/console CONSOLE_SCREENMAP trivial
-baseUpdateSysConfig /etc/sysconfig/console CONSOLE_MAGIC "(K"
-baseUpdateSysConfig /etc/sysconfig/console CONSOLE_ENCODING "UTF-8"
+# baseUpdateSysConfig /etc/sysconfig/console CONSOLE_FONT "lat9w-16.psfu"
+# baseUpdateSysConfig /etc/sysconfig/console CONSOLE_SCREENMAP trivial
+# baseUpdateSysConfig /etc/sysconfig/console CONSOLE_MAGIC "(K"
+# baseUpdateSysConfig /etc/sysconfig/console CONSOLE_ENCODING "UTF-8"
 
 baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER sddm
 
 # baseUpdateSysConfig /etc/sysconfig/keyboard KEYTABLE us.map.gz
-baseUpdateSysConfig /etc/sysconfig/keyboard YAST_KEYBOARD "english-us,pc104"
-baseUpdateSysConfig /etc/sysconfig/keyboard COMPOSETABLE "clear latin1.add"
+# baseUpdateSysConfig /etc/sysconfig/keyboard YAST_KEYBOARD "english-us,pc104"
+# baseUpdateSysConfig /etc/sysconfig/keyboard COMPOSETABLE "clear latin1.add"
 
 # baseUpdateSysConfig /etc/sysconfig/language RC_LANG "en_US.UTF-8"
 
 # bug 891183 yast2 live-installer --gtk segfaults
-baseUpdateSysConfig /etc/sysconfig/yast2 WANTED_GUI qt
+# baseUpdateSysConfig /etc/sysconfig/yast2 WANTED_GUI qt
 
 # Clear zypper log
-: > /var/log/zypper.log
+# : > /var/log/zypper.log
 
 # Clear package cache
-rm -rf /var/cache/zypp/packages
+# rm -rf /var/cache/zypp/packages
 
 #======================================
 # Umount kernel filesystems
 #--------------------------------------
-baseCleanMount || true
+baseCleanMount
 
 #======================================
 # Exit safely

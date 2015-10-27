@@ -16,7 +16,7 @@ base_system='42.1'
 uefi_enabled='false'
 declare -a repos=()
 
-dir="$(dirname $0)"
+dir="$(pwd)"
 src="$dir/source"
 dst="$dir/image"
 
