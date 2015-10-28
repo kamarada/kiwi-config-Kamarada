@@ -42,8 +42,8 @@ test -f /.profile && . /.profile
 # exec 2>&1
 
 # Removes any package starting with package-lists-
-# pl=`rpmqpack | grep package-lists-` || true
-# test -z "$pl" || rpm -e $pl
+pl=`rpmqpack | grep package-lists-` || true
+test -z "$pl" || rpm -e $pl
 
 #======================================
 # Greeting...

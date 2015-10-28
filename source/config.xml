@@ -30,9 +30,13 @@
     <!--<repository type="rpm-md">
         <source path="http://download.opensuse.org/repositories/openSUSE:/42.1:/Live/standard/"/>
     </repository>-->
-    <packages patternType="plusRecommended" type="image">
+    <repository type='rpm-md'>
+        <source path='http://download.opensuse.org/repositories/home:kamarada:Playground:Live/openSUSE_Leap_42.1/'/>
+    </repository>
+    <packages patternType="onlyRequired" type="image">
         <package name="gfxboot-branding-openSUSE" bootinclude="true" bootdelete="true"/>
         <package name="grub2-branding-openSUSE" bootinclude="true"/>
+        <package name="plymouth-branding-openSUSE" bootinclude="true"/>
         <!-- workaround for bnc#892087 -->
         <package name="e2fsprogs" bootinclude="true"/>
         <package name="yast2-live-installer"/>
@@ -44,58 +48,14 @@
         <package name="tar"/>
         <package name="patch"/>
         <package name="zypper"/>
-        <package name='SuSEfirewall2'/>
-        <package name='btrfsprogs'/>
-        <package name='grub2'/>
-        <package name='icewm'/>
-        <package name='kernel-default'/>
-        <package name='less'/>
-        <package name='plymouth'/>
-        <package name='vim'/>
-        <package name='x11-tools'/>
-        <package name='xorg-x11'/>
-        <package name='xorg-x11-driver-input'/>
-        <package name='xorg-x11-driver-video'/>
-        <package name='xorg-x11-fonts'/>
-        <package name='xorg-x11-server'/>
-        <package name='yast2-x11'/>
-
-        <!--<package name="package-lists-openSUSE-KDE-cd"/>-->
-        <namedCollection name="apparmor"/>
-        <namedCollection name="apparmor_opt"/>
-        <namedCollection name="base"/>
-        <namedCollection name="enhanced_base"/>
-        <namedCollection name="enhanced_base_opt"/>
-        <namedCollection name="fonts"/>
-        <namedCollection name="fonts_opt"/>
-        <namedCollection name="games"/>
-        <namedCollection name="imaging"/>
-        <namedCollection name="imaging_opt"/>
-        <namedCollection name="kde"/>
-        <namedCollection name="kde_games"/>
-        <namedCollection name="kde_imaging"/>
-        <namedCollection name="kde_internet"/>
-        <namedCollection name="kde_multimedia"/>
-        <namedCollection name="kde_office"/>
-        <namedCollection name="kde_plasma"/>
-        <namedCollection name="kde_utilities"/>
-        <namedCollection name="kde_utilities_opt"/>
-        <namedCollection name="kde_yast"/>
-        <namedCollection name="multimedia"/>
-        <namedCollection name="multimedia_opt"/>
-        <namedCollection name="non_oss"/>
-        <namedCollection name="non_oss_opt"/>
-        <namedCollection name="office"/>
-        <namedCollection name="office_opt"/>
-        <namedCollection name="sw_management"/>
-        <namedCollection name="sw_management_kde"/>
-        <namedCollection name="x11"/>
-        <namedCollection name="x11_opt"/>
-        <namedCollection name="yast2_basis"/>
+        <package name="package-lists-Kamarada-KDE-DVD"/>
     </packages>
     <packages type="bootstrap">
         <package name="branding-openSUSE"/>
+        <package name="ca-certificates"/>
+        <package name="cracklib-dict-full"/>
         <package name="filesystem"/>
+        <package name="glibc-locale"/>
 <!--
         The installation of products in SLE12 requires the SLE12 zypper
         Thus the following definition only works when building on SLE12
@@ -109,6 +69,7 @@
         other release packages
 -->
         <package name="openSUSE-release"/>
+        <package name="udev"/>
     </packages>
     <packages type="delete">
         <package name="kernel-debug"/>
