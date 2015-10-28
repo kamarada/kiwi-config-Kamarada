@@ -9,10 +9,10 @@
         <type boot="isoboot/suse-leap42.1" bootkernel="std" bootprofile="default" editbootconfig="isopatch.sh" filesystem="ext4" firmware="efi" flags="overlay" hybrid="true" hybridpersistent="true" image="iso" kernelcmdline="splash" primary="true" volid="openSUSE Leap 42.1 KDE Live" />
         <version>1.42.1</version>
         <packagemanager>zypper</packagemanager>
-        <locale>en_US</locale>
-        <keytable>us.map.gz</keytable>
-        <timezone>Europe/Berlin</timezone>
-        <hwclock>utc</hwclock>
+        <locale>pt_BR</locale>
+        <keytable>br-abnt2.map.gz</keytable>
+        <timezone>Brazil/East</timezone>
+        <hwclock>localtime</hwclock>
         <rpm-excludedocs>false</rpm-excludedocs>
         <rpm-check-signatures>false</rpm-check-signatures>
         <rpm-force>false</rpm-force>
@@ -44,6 +44,21 @@
         <package name="tar"/>
         <package name="patch"/>
         <package name="zypper"/>
+        <package name='SuSEfirewall2'/>
+        <package name='btrfsprogs'/>
+        <package name='grub2'/>
+        <package name='icewm'/>
+        <package name='kernel-default'/>
+        <package name='less'/>
+        <package name='plymouth'/>
+        <package name='vim'/>
+        <package name='x11-tools'/>
+        <package name='xorg-x11'/>
+        <package name='xorg-x11-driver-input'/>
+        <package name='xorg-x11-driver-video'/>
+        <package name='xorg-x11-fonts'/>
+        <package name='xorg-x11-server'/>
+        <package name='yast2-x11'/>
 
         <!--<package name="package-lists-openSUSE-KDE-cd"/>-->
         <namedCollection name="apparmor"/>

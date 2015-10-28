@@ -59,28 +59,38 @@ baseMount
 # Call configuration code/functions
 #--------------------------------------
 
+# SuSEconfig
+echo "** Running SuSEconfig..."
+suseConfig
+
+echo "** Running ldconfig..."
+/sbin/ldconfig
+
 # Setup baseproduct link
 suseSetupProduct
 
 # Enable/disable services
-# mkdir /etc/langset
 
-# for s in langset NetworkManager SuSEfirewall2; do
-#     systemctl -f enable $s
-# done
+for s in sshd cron wicked purge-kernels; do
+    systemctl -f disable $s
+done
 
-# for s in sshd cron wicked purge-kernels; do
-#     systemctl -f disable $s
-# done
+mkdir /etc/langset
+for s in langset NetworkManager SuSEfirewall2; do
+    systemctl -f enable $s
+done
+
+# Firewall configuration
+echo '** Configuring firewall...'
+systemctl -f enable SuSEfirewall2
+
+# Disable sshd
 systemctl -f disable sshd
 
 # cd /
 # if test -e /etc/YaST2/liveinstall.patch; then
 #     patch -p0 < /etc/YaST2/liveinstall.patch
 # fi
-
-# Add missing GPG keys to RPM
-suseImportBuildKey
 
 # for i in /rpmkeys/gpg*.asc; do 
 #     # the import fails if kiwi already had this key
@@ -89,20 +99,20 @@ suseImportBuildKey
 # done
 # rmdir /rpmkeys
 
-# remove package docs
-rm -rf /usr/share/doc/packages/*
-rm -rf /usr/share/doc/manual/*
-rm -rf /opt/kde*
-
-# SuSEconfig
-suseConfig
+# Add missing GPG keys to RPM
+suseImportBuildKey
 
 # Remove repository metadata
 # rm -rf /var/cache/zypp/raw/*
 
 # Add repositories
-bash -x /var/lib/livecd/geturls.sh
-rm /var/lib/livecd/geturls.sh
+# bash -x /var/lib/livecd/geturls.sh
+# rm /var/lib/livecd/geturls.sh
+zypper addrepo -f -n "openSUSE-Leap-42.1-Debug" http://download.opensuse.org/debug/distribution/leap/42.1/repo/oss/ repo-debug
+zypper addrepo -f -n "openSUSE-Leap-42.1-Non-Oss" http://download.opensuse.org/distribution/leap/42.1/repo/non-oss/ repo-non-oss
+zypper addrepo -f -n "openSUSE-Leap-42.1-Oss" http://download.opensuse.org/distribution/leap/42.1/repo/oss/ repo-oss
+zypper addrepo -f -n "openSUSE-Leap-42.1-Source" http://download.opensuse.org/source/distribution/leap/42.1/repo/oss/ repo-source
+zypper addrepo -f -n "openSUSE-Leap-42.1-Update" http://download.opensuse.org/update/42.1/ repo-update
 
 # /etc/sudoers hack to fix #297695 
 # (Installation Live CD: no need to ask for password of root)
@@ -118,8 +128,11 @@ passwd -d linux
 # Empty password is OK
 pam-config -a --nullok
 
+# Clear zypper log
+# : > /var/log/zypper.log
+
 # mv /var/lib/livecd/*.pdf /home/linux || true
-rmdir /var/lib/livecd || true
+# rmdir /var/lib/livecd || true
 
 chown -R linux /home/linux
 
@@ -132,38 +145,46 @@ chkstat --system --set
 #     fi
 # done
 
+# Clear package cache
+# rm -rf /var/cache/zypp/packages
+
 # bug 544314, we only want to disable the bit in common-auth-pc
 sed -i -e 's,^\(.*pam_gnome_keyring.so.*\),#\1,'  /etc/pam.d/common-auth-pc
-
-baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER_AUTOLOGIN linux
-
-# Setup default target, with GUI
-baseSetRunlevel 5
 
 #USB /usr/bin/correct_live_for_reboot usb
 #USB /usr/bin/correct_live_install usb
 
-# baseUpdateSysConfig /etc/sysconfig/console CONSOLE_FONT "lat9w-16.psfu"
-# baseUpdateSysConfig /etc/sysconfig/console CONSOLE_SCREENMAP trivial
-# baseUpdateSysConfig /etc/sysconfig/console CONSOLE_MAGIC "(K"
-# baseUpdateSysConfig /etc/sysconfig/console CONSOLE_ENCODING "UTF-8"
+# Setup default target, with GUI
+# ln -s /usr/lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
+baseSetRunlevel 5
 
-baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER sddm
+# SysConfig update
+echo '** Update SysConfig entries...'
 
-# baseUpdateSysConfig /etc/sysconfig/keyboard KEYTABLE us.map.gz
-# baseUpdateSysConfig /etc/sysconfig/keyboard YAST_KEYBOARD "english-us,pc104"
-# baseUpdateSysConfig /etc/sysconfig/keyboard COMPOSETABLE "clear latin1.add"
-
-# baseUpdateSysConfig /etc/sysconfig/language RC_LANG "en_US.UTF-8"
+baseUpdateSysConfig /etc/sysconfig/console CONSOLE_ENCODING "UTF-8"
+baseUpdateSysConfig /etc/sysconfig/console CONSOLE_FONT "lat9w-16.psfu"
+baseUpdateSysConfig /etc/sysconfig/console CONSOLE_MAGIC "(K"
+baseUpdateSysConfig /etc/sysconfig/console CONSOLE_SCREENMAP "trivial"
+baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER "sddm"
+baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER_AUTOLOGIN "linux"
+baseUpdateSysConfig /etc/sysconfig/keyboard COMPOSETABLE "clear latin1.add"
+# baseUpdateSysConfig /etc/sysconfig/keyboard KEYTABLE "br-abnt2.map.gz"
+baseUpdateSysConfig /etc/sysconfig/keyboard YAST_KEYBOARD "portugese-br,pc104"
+# baseUpdateSysConfig /etc/sysconfig/language RC_LANG "pt_BR.UTF-8"
+baseUpdateSysConfig /etc/sysconfig/network/config FIREWALL "yes"
+baseUpdateSysConfig /etc/sysconfig/windowmanager DEFAULT_WM "plasma5"
 
 # bug 891183 yast2 live-installer --gtk segfaults
 # baseUpdateSysConfig /etc/sysconfig/yast2 WANTED_GUI qt
 
-# Clear zypper log
-# : > /var/log/zypper.log
+# SSL certificates configuration
+echo '** Rehashing SSL Certificates...'
+c_rehash
 
-# Clear package cache
-# rm -rf /var/cache/zypp/packages
+# Remove package docs
+rm -rf /usr/share/doc/packages/*
+# rm -rf /usr/share/doc/manual/*
+# rm -rf /opt/kde*
 
 #======================================
 # Umount kernel filesystems
