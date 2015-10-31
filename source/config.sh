@@ -75,17 +75,9 @@ for s in sshd cron wicked purge-kernels; do
     systemctl -f disable $s
 done
 
-mkdir /etc/langset
 for s in langset NetworkManager SuSEfirewall2; do
     systemctl -f enable $s
 done
-
-# Firewall configuration
-echo '** Configuring firewall...'
-systemctl -f enable SuSEfirewall2
-
-# Disable sshd
-systemctl -f disable sshd
 
 # cd /
 # if test -e /etc/YaST2/liveinstall.patch; then
@@ -139,11 +131,11 @@ chown -R linux /home/linux
 # Check and set file permissions
 chkstat --system --set
 
-# for script in /usr/share/opensuse-kiwi/live_user_scripts/*.sh; do
-#     if test -f $script; then
-#         su - linux -c "/bin/bash $script"
-#     fi
-# done
+for script in /usr/share/opensuse-kiwi/live_user_scripts/*.sh; do
+    if test -f $script; then
+        su - linux -c "/bin/bash $script"
+    fi
+done
 
 # Clear package cache
 # rm -rf /var/cache/zypp/packages

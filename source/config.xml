@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <image displayname="openSUSE_Leap_42.1_KDE_Live" name="openSUSE-Leap-42.1-LiveDVD-KDE" schemaversion="6.2">
     <description type="system">
-        <author>Marcus Schäfer</author>
-        <contact>ms@suse.com</contact>
+        <author>Projeto Linux Kamarada</author>
+        <contact>linuxkamarada@gmail.com</contact>
         <specification>openSUSE Leap 42.1 Live system</specification>
     </description>
     <preferences>
-        <type boot="isoboot/suse-leap42.1" bootkernel="std" bootprofile="default" editbootconfig="isopatch.sh" filesystem="ext4" firmware="efi" flags="overlay" hybrid="true" hybridpersistent="true" image="iso" kernelcmdline="splash" primary="true" volid="openSUSE Leap 42.1 KDE Live" />
+        <type boot="isoboot/suse-leap42.1" checkprebuilt="true" editbootconfig="isopatch.sh" filesystem="ext4" firmware="uefi" flags="overlay" hybrid="true" hybridpersistent="true" image="iso" kernelcmdline="splash" primary="true" volid="openSUSE Leap 42.1 KDE Live" />
         <version>1.42.1</version>
         <packagemanager>zypper</packagemanager>
         <locale>pt_BR</locale>
@@ -22,33 +22,67 @@
     <users group="root">
         <user home="/root" name="root" password="" />
     </users>
-    <!--openSUSE-Leap-Oss-->
+    <!-- openSUSE-Leap-42.1-Oss -->
     <repository type="yast2">
         <!--<source path="obs://leap/42.1/repo/oss"/>-->
         <source path="http://download.opensuse.org/distribution/leap/42.1/repo/oss/"/>
     </repository>
-    <!--<repository type="rpm-md">
-        <source path="http://download.opensuse.org/repositories/openSUSE:/42.1:/Live/standard/"/>
-    </repository>-->
-    <repository type='rpm-md'>
-        <source path='http://download.opensuse.org/repositories/home:kamarada:Playground:Live/openSUSE_Leap_42.1/'/>
+    <!-- openSUSE-Leap-42.1-Update -->
+    <repository type="rpm-md">
+        <source path="http://download.opensuse.org/update/leap/42.1/oss/"/>
     </repository>
     <packages patternType="onlyRequired" type="image">
+        <!-- workaround for bnc#892087 -->
+        <package name="e2fsprogs" bootinclude="true"/>
         <package name="gfxboot-branding-openSUSE" bootinclude="true" bootdelete="true"/>
         <package name="grub2-branding-openSUSE" bootinclude="true"/>
         <package name="plymouth-branding-openSUSE" bootinclude="true"/>
-        <!-- workaround for bnc#892087 -->
-        <package name="e2fsprogs" bootinclude="true"/>
-        <package name="yast2-live-installer"/>
-        <package name="pam"/>
-        <package name="pam-config"/>
-        <package name="pam-modules"/>
-        <package name="udev"/>
-        <package name="aaa_base"/>
-        <package name="tar"/>
-        <package name="patch"/>
+        <package name="shim" bootinclude="true"/>
+        <package name="grub2-x86_64-efi"/>
+        <package name="NetworkManager"/>
+        <package name="sddm"/>
+        <package name="konsole"/>
+        <package name="libyui-qt-pkg7"/>
+        <package name="kwin5"/>
+        <package name="soprano-backend-virtuoso"/>
+        <package name="yast2-control-center-qt"/>
+        <package name="dbus-1-x11"/>
+        <package name="icewm"/>
+        <package name="x11-tools"/>
+        <package name="xorg-x11"/>
+        <package name="xorg-x11-driver-input"/>
+        <package name="xorg-x11-driver-video"/>
+        <package name="xorg-x11-fonts"/>
+        <package name="xorg-x11-server"/>
+        <package name="yast2-branding-openSUSE"/>
+        <package name="yast2-x11"/>
+        <package name="SuSEfirewall2"/>
+        <package name="grub2"/>
+        <package name="glibc-locale"/>
+        <package name="iputils"/>
+        <package name="kernel-default"/>
+        <package name="less"/>
+        <package name="plymouth"/>
+        <package name="syslog-ng"/>
+        <package name="vim"/>
+        <package name="yast2"/>
+        <package name="yast2-firstboot"/>
         <package name="zypper"/>
-        <package name="package-lists-Kamarada-KDE-DVD"/>
+        <package name="aaa_base"/>
+        <package name="branding-openSUSE"/>
+        <package name="patterns-openSUSE-base"/>
+        <package name="patterns-openSUSE-kde"/>
+        <package name="hwinfo"/>
+        <package name="netcfg"/>
+        <package name="openSUSE-build-key"/>
+        <package name="openssh"/>
+        <package name="polkit-default-privs"/>
+        <package name="rpcbind"/>
+        <package name="timezone"/>
+        <package name="gsettings-backend-dconf"/>
+        <package name="yast2-live-installer"/>
+        <package name="yast2-users"/>
+        <package name="btrfsprogs"/>
     </packages>
     <packages type="bootstrap">
         <package name="branding-openSUSE"/>
@@ -56,6 +90,7 @@
         <package name="cracklib-dict-full"/>
         <package name="filesystem"/>
         <package name="glibc-locale"/>
+        <package name="module-init-tools"/>
 <!--
         The installation of products in SLE12 requires the SLE12 zypper
         Thus the following definition only works when building on SLE12
