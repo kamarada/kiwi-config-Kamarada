@@ -3,11 +3,13 @@ CONSOLE_FONT:
 CONSOLE_SCREENMAP: 
 CONSOLE_UNICODEMAP: 
 CONSOLE_MAGIC: 
-KEYTABLE: fi-latin1.map.gz
+KEYTABLE: fi-kotoistus.map.gz
 YAST_KEYBOARD: finnish,pc104
 COMPOSETABLE: clear latin1.add
 TIMEZONE: Europe/Helsinki
 CONSOLE_ENCODING: UTF-8
-Apply: -model microsoftpro -layout fi
+Apply: -model microsoftpro -variant kotoistus -option terminate:ctrl_alt_bksp -layout fi
 XkbLayout: fi
 XkbModel: microsoftpro
+XkbOptions: terminate:ctrl_alt_bksp
+XkbVariant: kotoistus

@@ -3,12 +3,12 @@ CONSOLE_FONT: iso09.f16n
 CONSOLE_SCREENMAP: trivial
 CONSOLE_UNICODEMAP: 
 CONSOLE_MAGIC: (K
-KEYTABLE: trq.map.gz
+KEYTABLE: tr.map.gz
 YAST_KEYBOARD: turkish,pc104
 COMPOSETABLE: clear latin1.add
 TIMEZONE: Europe/Istanbul
 CONSOLE_ENCODING: UTF-8
-Apply: -layout tr -model microsoftpro -option caps:shift
+Apply: -layout tr -model microsoftpro -option terminate:ctrl_alt_bksp
 XkbLayout: tr
 XkbModel: microsoftpro
-XkbOptions: caps:shift
+XkbOptions: terminate:ctrl_alt_bksp

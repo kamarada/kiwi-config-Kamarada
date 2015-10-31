@@ -3,11 +3,12 @@ CONSOLE_FONT: lat9w-16.psfu
 CONSOLE_SCREENMAP: trivial
 CONSOLE_UNICODEMAP: 
 CONSOLE_MAGIC: (K
-KEYTABLE: pt-latin1.map.gz
+KEYTABLE: pt.map.gz
 YAST_KEYBOARD: portugese,pc104
 COMPOSETABLE: clear latin1.add
 TIMEZONE: Europe/Lisbon
 CONSOLE_ENCODING: UTF-8
-Apply: -model microsoftpro -layout pt
+Apply: -layout pt -option terminate:ctrl_alt_bksp -model microsoftpro
 XkbLayout: pt
 XkbModel: microsoftpro
+XkbOptions: terminate:ctrl_alt_bksp

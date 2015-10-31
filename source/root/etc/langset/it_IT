@@ -8,6 +8,7 @@ YAST_KEYBOARD: italian,pc104
 COMPOSETABLE: clear latin1.add
 TIMEZONE: Europe/Rome
 CONSOLE_ENCODING: UTF-8
-Apply: -model microsoftpro -layout it
+Apply: -option terminate:ctrl_alt_bksp -layout it -model microsoftpro
 XkbLayout: it
 XkbModel: microsoftpro
+XkbOptions: terminate:ctrl_alt_bksp

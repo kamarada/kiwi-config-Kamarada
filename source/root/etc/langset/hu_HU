@@ -5,9 +5,10 @@ CONSOLE_UNICODEMAP:
 CONSOLE_MAGIC: (K
 KEYTABLE: hu.map.gz
 YAST_KEYBOARD: hungarian,pc104
-COMPOSETABLE: clear latin2
+COMPOSETABLE: clear latin1.add
 TIMEZONE: Europe/Budapest
 CONSOLE_ENCODING: UTF-8
-Apply: -model microsoftpro -layout hu
+Apply: -model microsoftpro -option terminate:ctrl_alt_bksp -layout hu
 XkbLayout: hu
 XkbModel: microsoftpro
+XkbOptions: terminate:ctrl_alt_bksp

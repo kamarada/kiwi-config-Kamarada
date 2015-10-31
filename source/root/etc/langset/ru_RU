@@ -5,11 +5,11 @@ CONSOLE_UNICODEMAP:
 CONSOLE_MAGIC: (K
 KEYTABLE: ruwin_alt-UTF-8.map.gz
 YAST_KEYBOARD: russian,pc104
-COMPOSETABLE: clear latin1.add
+COMPOSETABLE: clear winkeys shiftctrl latin1.add
 TIMEZONE: Europe/Moscow
 CONSOLE_ENCODING: UTF-8
-Apply: -layout us,ru -option grp:ctrl_shift_toggle,grp_led:scroll -model microsoftpro -variant ,winkeys
+Apply: -model pc105 -layout us,ru -variant ,winkeys -option terminate:ctrl_alt_bksp,grp:ctrl_shift_toggle,grp_led:scroll
 XkbLayout: us,ru
-XkbModel: microsoftpro
-XkbOptions: grp:ctrl_shift_toggle,grp_led:scroll
+XkbModel: pc105
+XkbOptions: terminate:ctrl_alt_bksp,grp:ctrl_shift_toggle,grp_led:scroll
 XkbVariant: ,winkeys

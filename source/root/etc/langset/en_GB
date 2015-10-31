@@ -3,11 +3,12 @@ CONSOLE_FONT: lat9w-16.psfu
 CONSOLE_SCREENMAP: trivial
 CONSOLE_UNICODEMAP: 
 CONSOLE_MAGIC: (K
-KEYTABLE: uk.map.gz
+KEYTABLE: gb.map.gz
 YAST_KEYBOARD: english-uk,pc104
 COMPOSETABLE: clear latin1.add
 TIMEZONE: Europe/London
 CONSOLE_ENCODING: UTF-8
-Apply: -layout gb -model microsoftpro
+Apply: -option terminate:ctrl_alt_bksp -model microsoftpro -layout gb
 XkbLayout: gb
 XkbModel: microsoftpro
+XkbOptions: terminate:ctrl_alt_bksp

@@ -3,12 +3,13 @@ CONSOLE_FONT: lat9w-16.psfu
 CONSOLE_SCREENMAP: trivial
 CONSOLE_UNICODEMAP: 
 CONSOLE_MAGIC: (K
-KEYTABLE: de-latin1-nodeadkeys.map.gz
+KEYTABLE: de-nodeadkeys
 YAST_KEYBOARD: german,pc104
 COMPOSETABLE: clear latin1.add
 TIMEZONE: Europe/Berlin
 CONSOLE_ENCODING: UTF-8
-Apply: -variant nodeadkeys -layout de -model microsoftpro
+Apply: -layout de -model microsoftpro -variant nodeadkeys -option terminate:ctrl_alt_bksp
 XkbLayout: de
 XkbModel: microsoftpro
+XkbOptions: terminate:ctrl_alt_bksp
 XkbVariant: nodeadkeys

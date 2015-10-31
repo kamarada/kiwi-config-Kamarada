@@ -13,9 +13,10 @@ else
   #sed -i -e "s,label Failsafe.*,label Failsafe $label," boot/*/loader/isolinux.cfg
 fi
 sed -i -e "s,label Hard-Disk,label harddisk," boot/*/loader/isolinux.cfg
+# remove splash for mediacheck
+sed -i -e 's,mediacheck=1 splash=silent quiet,mediacheck=1,' boot/*/loader/isolinux.cfg
 #sed -i -e "s,default open.*,default $label," boot/*/loader/isolinux.cfg
 #sed -i -e "s,openSUSE[^ ]*,$label," boot/*/loader/isolinux.msg
-sed -i -e "s,showopts,splash=silent quiet showopts," boot/*/loader/isolinux.cfg
 sed -i -e 's,key.F4=$,key.F4=kernelopts,' boot/*/loader/gfxboot.cfg
 
 bootd=$(ls -1d boot/*/loader)

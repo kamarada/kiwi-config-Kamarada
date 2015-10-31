@@ -5,11 +5,10 @@ CONSOLE_UNICODEMAP:
 CONSOLE_MAGIC: (K
 KEYTABLE: gr.map.gz
 YAST_KEYBOARD: greek,pc104
-COMPOSETABLE: clear latin1.add
+COMPOSETABLE: clear winkeys shiftctrl latin1.add
 TIMEZONE: Europe/Athens
 CONSOLE_ENCODING: UTF-8
-Apply: -variant ,extended -layout us,gr -model microsoftpro -option grp:alt_shift_toggle,grp_led:scroll
-XkbLayout: us,gr
-XkbModel: microsoftpro
-XkbOptions: grp:alt_shift_toggle,grp_led:scroll
-XkbVariant: ,extended
+Apply: -option terminate:ctrl_alt_bksp,grp:shifts_toggle,grp_led:scroll -layout gr,us -model pc105
+XkbLayout: gr,us
+XkbModel: pc105
+XkbOptions: terminate:ctrl_alt_bksp,grp:shifts_toggle,grp_led:scroll

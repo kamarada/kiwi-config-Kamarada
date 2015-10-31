@@ -8,6 +8,7 @@ YAST_KEYBOARD: romanian,pc104
 COMPOSETABLE: clear latin1.add
 TIMEZONE: Europe/Bucharest
 CONSOLE_ENCODING: UTF-8
-Apply: -layout ro -model microsoftpro
+Apply: -layout ro -model microsoftpro -option terminate:ctrl_alt_bksp
 XkbLayout: ro
 XkbModel: microsoftpro
+XkbOptions: terminate:ctrl_alt_bksp

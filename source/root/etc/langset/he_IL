@@ -8,6 +8,7 @@ YAST_KEYBOARD: english-us,pc104
 COMPOSETABLE: clear latin1.add
 TIMEZONE: Asia/Tel_Aviv
 CONSOLE_ENCODING: UTF-8
-Apply: -layout us -model microsoftpro
+Apply: -layout us -option terminate:ctrl_alt_bksp -model microsoftpro
 XkbLayout: us
 XkbModel: microsoftpro
+XkbOptions: terminate:ctrl_alt_bksp

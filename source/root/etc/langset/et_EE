@@ -3,11 +3,12 @@ CONSOLE_FONT:
 CONSOLE_SCREENMAP: 
 CONSOLE_UNICODEMAP: 
 CONSOLE_MAGIC: 
-KEYTABLE: et.map.gz
+KEYTABLE: ee.map.gz
 YAST_KEYBOARD: estonian,pc104
 COMPOSETABLE: clear latin1.add
 TIMEZONE: Europe/Tallinn
 CONSOLE_ENCODING: UTF-8
-Apply: -model microsoftpro -layout ee
+Apply: -model microsoftpro -layout ee -option terminate:ctrl_alt_bksp
 XkbLayout: ee
 XkbModel: microsoftpro
+XkbOptions: terminate:ctrl_alt_bksp

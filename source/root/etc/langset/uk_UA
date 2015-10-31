@@ -9,11 +9,6 @@ COMPOSETABLE: clear latin1.add
 TIMEZONE: Europe/Kiev
 CONSOLE_ENCODING: UTF-8
 Apply: 
-LeftAlt: 
-RightAlt: 
-RightCtl: 
-ScrollLock: 
-XkbKeyCodes: 
 XkbLayout: 
 XkbModel: 
 XkbOptions: 

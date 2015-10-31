@@ -3,11 +3,12 @@ CONSOLE_FONT:
 CONSOLE_SCREENMAP: 
 CONSOLE_UNICODEMAP: 
 CONSOLE_MAGIC: 
-KEYTABLE: taiwanese.map.gz
+KEYTABLE: us.map.gz
 YAST_KEYBOARD: taiwanese,pc104
 COMPOSETABLE: clear latin1.add
 TIMEZONE: Asia/Taipei
 CONSOLE_ENCODING: UTF-8
-Apply: -layout us -model microsoftpro
+Apply: -model microsoftpro -option terminate:ctrl_alt_bksp -layout us
 XkbLayout: us
 XkbModel: microsoftpro
+XkbOptions: terminate:ctrl_alt_bksp

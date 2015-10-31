@@ -5,16 +5,10 @@ CONSOLE_UNICODEMAP:
 CONSOLE_MAGIC: (K
 KEYTABLE: sr-cy.map.gz
 YAST_KEYBOARD: serbian,pc104
-COMPOSETABLE: clear latin1.add
+COMPOSETABLE: clear winkeys shiftctrl latin1.add
 TIMEZONE: Europe/Belgrade
 CONSOLE_ENCODING: UTF-8
-Apply: 
-LeftAlt: 
-RightAlt: 
-RightCtl: 
-ScrollLock: 
-XkbKeyCodes: 
-XkbLayout: 
-XkbModel: 
-XkbOptions: 
-XkbVariant: 
+Apply: -option terminate:ctrl_alt_bksp -model pc105 -layout rs
+XkbLayout: rs
+XkbModel: pc105
+XkbOptions: terminate:ctrl_alt_bksp

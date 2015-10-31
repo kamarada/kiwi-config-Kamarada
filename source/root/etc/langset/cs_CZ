@@ -5,10 +5,10 @@ CONSOLE_UNICODEMAP:
 CONSOLE_MAGIC: (K
 KEYTABLE: cz-us-qwertz.map.gz
 YAST_KEYBOARD: czech,pc104
-COMPOSETABLE: clear latin2
+COMPOSETABLE: clear winkeys shiftctrl latin2
 TIMEZONE: Europe/Prague
 CONSOLE_ENCODING: UTF-8
-Apply: -layout cz,us -option grp:shift_toggle -model microsoftpro
+Apply: -model pc105 -option terminate:ctrl_alt_bksp,grp:shifts_toggle,grp_led:scroll -layout cz,us
 XkbLayout: cz,us
-XkbModel: microsoftpro
-XkbOptions: grp:shift_toggle
+XkbModel: pc105
+XkbOptions: terminate:ctrl_alt_bksp,grp:shifts_toggle,grp_led:scroll
