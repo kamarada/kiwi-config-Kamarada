@@ -6,7 +6,7 @@
         <specification>openSUSE Leap 42.1 Live system</specification>
     </description>
     <preferences>
-        <type boot="isoboot/suse-leap42.1" bootloader="grub2" checkprebuilt="true" editbootconfig="isopatch.sh" filesystem="ext4" firmware="uefi" flags="overlay" fsmountoptions="acl" fsnocheck="true" hybrid="true" hybridpersistent="true" image="iso" kernelcmdline="splash" primary="true" volid="openSUSE Leap 42.1 KDE Live">
+        <type boot="isoboot/suse-leap42.1" checkprebuilt="true" editbootconfig="isopatch.sh" flags="overlay" hybrid="true" hybridpersistent="true" image="iso" kernelcmdline="splash" primary="true" volid="openSUSE Leap 42.1 KDE Live">
             <split>
                 <temporary>
                     <file name="/etc"/>
@@ -44,93 +44,69 @@
     <repository type="rpm-md">
         <source path="http://download.opensuse.org/update/leap/42.1/oss/"/>
     </repository>
-    <packages patternType="onlyRequired" type="image">
-        <package name="NetworkManager"/>
-        <package name="SuSEfirewall2"/>
+    <packages patternType="plusRecommended" type="image">
+        <!-- AppArmor -->
+        <namedCollection name="apparmor"/>
+        <!-- Sistema base -->
+        <namedCollection name="base"/>
+        <!-- Sistema base aprimorado -->
+        <namedCollection name="enhanced_base"/>
+        <!-- Fontes -->
+        <namedCollection name="fonts"/>
+        <!-- Jogos -->
+        <namedCollection name="games"/>
+        <!-- Gráficos -->
+        <namedCollection name="imaging"/>
+        <!-- Ambiente da área de trabalho KDE -->
+        <namedCollection name="kde"/>
+        <!-- Plasma 5 Desktop -->
+        <namedCollection name="kde_plasma"/>
+        <!-- Multimídia -->
+        <namedCollection name="multimedia"/>
+        <!-- Pacotes proprietários diversos -->
+        <namedCollection name="non_oss"/>
+        <!-- Programas de escritório -->
+        <namedCollection name="office"/>
+        <!-- Gerenciamento de software -->
+        <namedCollection name="sw_management"/>
+        <!-- Sistema de janelas X -->
+        <namedCollection name="x11"/>
+        <!-- Administração do sistema do YaST -->
+        <namedCollection name="yast2_basis"/>
+        
         <package name="aaa_base"/>
-        <package name="amarok"/>
-        <package name="ark"/>
-        <package name="bluedevil5"/>
-        <package name="branding-openSUSE"/>
-        <package name="btrfsprogs"/>
-        <package name="choqok"/>
-        <package name="dbus-1-x11"/>
-        <package name="dolphin"/>
-        <package name="e2fsprogs"/>
+        <package name="bash-completion"/>
+        <package name="dhcp-client"/>
+        <!-- workaround for bnc#892087 -->
+        <package name="e2fsprogs" bootinclude="true"/>
+        <package name="fontconfig"/>
+        <package name="fonts-config"/>
         <package name="gfxboot-branding-openSUSE" bootinclude="true" bootdelete="true"/>
-        <package name="glibc-locale"/>
-        <package name="grub"/>
         <package name="grub2"/>
         <package name="grub2-branding-openSUSE" bootinclude="true"/>
-        <package name="grub2-x86_64-efi"/>
-        <package name="gsettings-backend-dconf"/>
-        <package name="gwenview5"/>
-        <package name="hwinfo"/>
-        <package name="icewm"/>
+        <package name="ifplugd"/>
+        <package name="iproute2"/>
         <package name="iputils"/>
-        <package name="kactivities5"/>
-        <package name="kate"/>
-        <package name="kcm_sddm"/>
-        <package name="kcm_sddm-lang"/>
-        <package name="kcoreaddons"/>
-        <package name="kde-gtk-config5"/>
-        <package name="kernel-default"/>
-        <package name="kernel-firmware"/>
-        <package name="kinfocenter5"/>
-        <package name="kmix"/>
-        <package name="konsole"/>
-        <package name="konversation"/>
-        <package name="kpeople5"/>
-        <package name="kscreen5"/>
-        <package name="ksysguard5"/>
-        <package name="kwin5"/>
         <package name="less"/>
-        <package name="libtelepathy-qt5-0"/>
-        <package name="libyui-qt-pkg7"/>
-        <package name="lightdm-kde-greeter"/>
-        <package name="net-tools"/>
-        <package name="netcfg"/>
-        <package name="okular"/>
-        <package name="openSUSE-build-key"/>
+        <package name="lvm2"/>
         <package name="openssh"/>
-        <package name="patterns-openSUSE-base"/>
-        <package name="patterns-openSUSE-kde"/>
-        <package name="patterns-openSUSE-x11"/>
-        <package name="plasma-framework-components"/>
-        <package name="plasma5-addons"/>
-        <package name="plasma5-desktop"/>
-        <package name="plasma5-openSUSE"/>
-        <package name="plasma5-pa"/>
-        <package name="plasma5-session"/>
+        <package name="pam"/>
+        <package name="pam-config"/>
+        <package name="pam-modules"/>
+        <package name="parted"/>
+        <package name="patch"/>
         <package name="plymouth"/>
         <package name="plymouth-branding-openSUSE" bootinclude="true"/>
-        <package name="polkit-default-privs"/>
-        <package name="qupzilla-qt5"/>
-        <package name="rpcbind"/>
-        <package name="sddm"/>
-        <package name="shim" bootinclude="true"/>
-        <package name="soprano-backend-virtuoso"/>
-        <package name="syslog-ng"/>
-        <package name="timezone"/>
-        <package name="traceroute"/>
+        <package name="syslinux"/>
+        <package name="tar"/>
+        <package name="udev"/>
         <package name="vim"/>
-        <package name="vlc-qt"/>
-        <package name="x11-tools"/>
-        <package name="xkeyboard-config"/>
-        <package name="xorg-x11"/>
-        <package name="xorg-x11-driver-input"/>
-        <package name="xorg-x11-driver-video"/>
-        <package name="xorg-x11-fonts"/>
-        <package name="xorg-x11-fonts-core"/>
-        <package name="xorg-x11-libX11-ccache"/>
-        <package name="xorg-x11-server"/>
-        <package name="yast2"/>
-        <package name="yast2-branding-openSUSE"/>
-        <package name="yast2-control-center-qt"/>
-        <package name="yast2-firstboot"/>
+        <package name="virtualbox-guest-desktop-icons"/>
+        <package name="virtualbox-guest-kmp-default"/>
+        <package name="virtualbox-guest-tools"/>
+        <package name="virtualbox-guest-x11"/>
+        <package name="which"/>
         <package name="yast2-live-installer"/>
-        <package name="yast2-users"/>
-        <package name="yast2-x11"/>
         <package name="zypper"/>
     </packages>
     <packages type="bootstrap">
