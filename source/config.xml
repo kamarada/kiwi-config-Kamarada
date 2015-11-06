@@ -56,7 +56,7 @@
         <!-- Jogos -->
         <namedCollection name="games"/>
         <!-- Gráficos -->
-        <namedCollection name="imaging"/>
+        <namedCollection name="kde_imaging"/>
         <!-- Ambiente da área de trabalho KDE -->
         <namedCollection name="kde"/>
         <!-- Plasma 5 Desktop -->
@@ -101,7 +101,6 @@
         <package name="tar"/>
         <package name="udev"/>
         <package name="vim"/>
-        <package name="virtualbox-guest-desktop-icons"/>
         <package name="virtualbox-guest-kmp-default"/>
         <package name="virtualbox-guest-tools"/>
         <package name="virtualbox-guest-x11"/>
@@ -132,6 +131,7 @@
         <package name="udev"/>
     </packages>
     <packages type="delete">
+        <package name="catdoc"/>
         <package name="kernel-debug"/>
     </packages>
 </image>
