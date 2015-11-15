@@ -6,7 +6,7 @@ CONSOLE_MAGIC: (K
 KEYTABLE: br-abnt2.map.gz
 YAST_KEYBOARD: portugese-br,pc104
 COMPOSETABLE: clear latin1.add
-TIMEZONE: Brazil/East
+TIMEZONE: America/Sao_Paulo
 CONSOLE_ENCODING: UTF-8
 Apply: -layout br -option terminate:ctrl_alt_bksp -model microsoftpro
 XkbLayout: br

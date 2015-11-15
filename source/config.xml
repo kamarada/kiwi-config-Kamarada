@@ -6,7 +6,7 @@
         <specification>openSUSE Leap 42.1 Live system</specification>
     </description>
     <preferences>
-        <type boot="isoboot/suse-leap42.1" checkprebuilt="true" editbootconfig="isopatch.sh" flags="overlay" hybrid="true" hybridpersistent="true" image="iso" kernelcmdline="splash" primary="true" volid="openSUSE Leap 42.1 KDE Live">
+        <type boot="isoboot/suse-leap42.1" bootloader="grub2" checkprebuilt="true" flags="overlay" fsnocheck="true" hybrid="true" image="iso" primary="true" volid="openSUSE Leap 42.1 KDE Live">
             <split>
                 <temporary>
                     <file name="/etc"/>
@@ -24,7 +24,7 @@
         <packagemanager>zypper</packagemanager>
         <locale>pt_BR</locale>
         <keytable>br-abnt2.map.gz</keytable>
-        <timezone>Brazil/East</timezone>
+        <timezone>America/Sao_Paulo</timezone>
         <hwclock>localtime</hwclock>
         <rpm-excludedocs>false</rpm-excludedocs>
         <rpm-check-signatures>false</rpm-check-signatures>
@@ -44,96 +44,89 @@
     <repository type="rpm-md">
         <source path="http://download.opensuse.org/update/leap/42.1/oss/"/>
     </repository>
-    <packages patternType="plusRecommended" type="image">
-        <!-- AppArmor -->
-        <namedCollection name="apparmor"/>
-        <!-- Sistema base -->
+    <packages type="image" patternType="onlyRequired">
         <namedCollection name="base"/>
-        <!-- Sistema base aprimorado -->
-        <namedCollection name="enhanced_base"/>
-        <!-- Fontes -->
-        <namedCollection name="fonts"/>
-        <!-- Jogos -->
-        <namedCollection name="games"/>
-        <!-- Gráficos -->
-        <namedCollection name="kde_imaging"/>
-        <!-- Ambiente da área de trabalho KDE -->
         <namedCollection name="kde"/>
-        <!-- Plasma 5 Desktop -->
-        <namedCollection name="kde_plasma"/>
-        <!-- Multimídia -->
-        <namedCollection name="multimedia"/>
-        <!-- Pacotes proprietários diversos -->
-        <namedCollection name="non_oss"/>
-        <!-- Programas de escritório -->
-        <namedCollection name="office"/>
-        <!-- Gerenciamento de software -->
-        <namedCollection name="sw_management"/>
-        <!-- Sistema de janelas X -->
-        <namedCollection name="x11"/>
-        <!-- Administração do sistema do YaST -->
+        <namedCollection name="kde_yast"/>
+        <namedCollection name="minimal_base"/>
         <namedCollection name="yast2_basis"/>
-        
-        <package name="aaa_base"/>
-        <package name="bash-completion"/>
-        <package name="dhcp-client"/>
+
+        <package name="NetworkManager"/>
+        <package name="SuSEfirewall2"/>
+        <package name="branding-openSUSE"/>
+        <package name="btrfsprogs"/>
         <!-- workaround for bnc#892087 -->
         <package name="e2fsprogs" bootinclude="true"/>
-        <package name="fontconfig"/>
-        <package name="fonts-config"/>
         <package name="gfxboot-branding-openSUSE" bootinclude="true" bootdelete="true"/>
+        <package name="glibc"/>
+        <package name="glibc-locale"/>
+        <package name="grub"/>
         <package name="grub2"/>
         <package name="grub2-branding-openSUSE" bootinclude="true"/>
-        <package name="ifplugd"/>
-        <package name="iproute2"/>
+        <package name="gsettings-backend-dconf"/>
         <package name="iputils"/>
+        <package name="kernel-default"/>
+        <package name="konsole"/>
+        <package name="kwin5"/>
         <package name="less"/>
-        <package name="lvm2"/>
-        <package name="openssh"/>
-        <package name="pam"/>
-        <package name="pam-config"/>
-        <package name="pam-modules"/>
-        <package name="parted"/>
-        <package name="patch"/>
+        <package name="plasma5-openSUSE"/>
         <package name="plymouth"/>
         <package name="plymouth-branding-openSUSE" bootinclude="true"/>
-        <package name="syslinux"/>
-        <package name="tar"/>
-        <package name="udev"/>
+        <package name="sax3"/>
+        <package name="sddm"/>
+        <package name="soprano-backend-virtuoso"/>
+        <package name="sudo"/>
+        <package name="syslog-ng"/>
+        <package name="timezone"/>
         <package name="vim"/>
         <package name="virtualbox-guest-kmp-default"/>
         <package name="virtualbox-guest-tools"/>
         <package name="virtualbox-guest-x11"/>
-        <package name="which"/>
+        <package name="x11-tools"/>
         <package name="xdg-user-dirs"/>
         <package name="xdg-user-dirs-lang"/>
+        <package name="xf86-input-joystick"/>
+        <package name="xf86-input-keyboard"/>
+        <package name="xf86-input-mouse"/>
+        <package name="xf86-input-vmmouse"/>
+        <package name="xf86-video-ark"/>
+        <package name="xf86-video-ast"/>
+        <package name="xf86-video-ati"/>
+        <package name="xf86-video-chips"/>
+        <package name="xf86-video-cirrus"/>
+        <package name="xf86-video-dummy"/>
+        <package name="xf86-video-glint"/>
+        <package name="xf86-video-i128"/>
+        <package name="xf86-video-intel"/>
+        <package name="xf86-video-mach64"/>
+        <package name="xf86-video-mga"/>
+        <package name="xf86-video-neomagic"/>
+        <package name="xf86-video-nouveau"/>
+        <package name="xf86-video-nv"/>
+        <package name="xf86-video-openchrome"/>
+        <package name="xf86-video-qxl"/>
+        <package name="xf86-video-r128"/>
+        <package name="xf86-video-savage"/>
+        <package name="xf86-video-siliconmotion"/>
+        <package name="xf86-video-sis"/>
+        <package name="xf86-video-sisusb"/>
+        <package name="xf86-video-tdfx"/>
+        <package name="xf86-video-tga"/>
+        <package name="xf86-video-trident"/>
+        <package name="xf86-video-vmware"/>
+        <package name="xf86-video-voodoo"/>
+        <package name="xorg-x11"/>
+        <package name="xorg-x11-driver-input"/>
+        <package name="xorg-x11-driver-video"/>
+        <package name="xorg-x11-fonts"/>
+        <package name="xorg-x11-server"/>
         <package name="yast2-live-installer"/>
+        <package name="yast2-x11"/>
         <package name="zypper"/>
     </packages>
     <packages type="bootstrap">
-        <package name="branding-openSUSE"/>
-        <package name="ca-certificates"/>
-        <package name="cracklib-dict-full"/>
         <package name="filesystem"/>
         <package name="glibc-locale"/>
         <package name="module-init-tools"/>
-<!--
-        The installation of products in SLE12 requires the SLE12 zypper
-        Thus the following definition only works when building on SLE12
-
-        <product name="openSUSE"/>
-
-        In order to stay compatible we just install the product rpm
-        package. It's required to install the release package in the
-        bootstrap phase in order to avoid the installation of an auto
-        selected dummy-release package which later conflicts with all
-        other release packages
--->
-        <package name="openSUSE-release"/>
-        <package name="udev"/>
-    </packages>
-    <packages type="delete">
-        <package name="catdoc"/>
-        <package name="kernel-debug"/>
     </packages>
 </image>

@@ -33,7 +33,7 @@ test -f /.profile && . /.profile
 # set -e
 
 # Print commands and their arguments as they are executed.
-# set -x
+set -x
 
 # Create an empty file /var/log/config.log
 # exec | tee /var/log/config.log
@@ -42,8 +42,8 @@ test -f /.profile && . /.profile
 # exec 2>&1
 
 # Removes any package starting with package-lists-
-pl=`rpmqpack | grep package-lists-` || true
-test -z "$pl" || rpm -e $pl
+# pl=`rpmqpack | grep package-lists-` || true
+# test -z "$pl" || rpm -e $pl
 
 #======================================
 # Greeting...
@@ -53,14 +53,14 @@ echo "Configure image: [$kiwi_iname]..."
 #======================================
 # Mount system filesystems
 #--------------------------------------
-baseMount
+# baseMount
 
 #======================================
 # Call configuration code/functions
 #--------------------------------------
 
 # SuSEconfig
-echo "** Running SuSEconfig..."
+echo "** Running suseConfig..."
 suseConfig
 
 echo "** Running ldconfig..."
@@ -111,6 +111,8 @@ zypper addrepo -d -f -n "openSUSE-Leap-42.1-Update-Debug-Non-Oss" http://downloa
 zypper addrepo -d -f -n "openSUSE-Leap-42.1-Source" http://download.opensuse.org/source/distribution/leap/42.1/repo/oss/ "repo-source"
 zypper addrepo -d -f -n "openSUSE-Leap-42.1-Source-Non-Oss" http://download.opensuse.org/source/distribution/leap/42.1/repo/non-oss/ "repo-source-non-oss"
 
+sed --in-place -e 's/# solver.onlyRequires.*/solver.onlyRequires = true/' /etc/zypp/zypp.conf
+
 # /etc/sudoers hack to fix #297695 
 # (Installation Live CD: no need to ask for password of root)
 sed -i -e "s/ALL ALL=(ALL) ALL/ALL ALL=(ALL) NOPASSWD: ALL/" /etc/sudoers 
@@ -155,8 +157,8 @@ sed -i -e 's,^\(.*pam_gnome_keyring.so.*\),#\1,'  /etc/pam.d/common-auth-pc
 # ln -s /usr/lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
 baseSetRunlevel 5
 
-# SysConfig update
-echo '** Update SysConfig entries...'
+# Sysconfig update
+echo '** Update sysconfig entries...'
 
 baseUpdateSysConfig /etc/sysconfig/console CONSOLE_ENCODING "UTF-8"
 baseUpdateSysConfig /etc/sysconfig/console CONSOLE_FONT "lat9w-16.psfu"
@@ -186,7 +188,7 @@ rm -rf /usr/share/doc/packages/*
 #======================================
 # Umount kernel filesystems
 #--------------------------------------
-baseCleanMount
+# baseCleanMount
 
 #======================================
 # Exit safely

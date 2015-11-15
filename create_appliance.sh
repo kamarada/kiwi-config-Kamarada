@@ -12,8 +12,8 @@
 image_file='image/openSUSE-Leap-42.1-KDE-Live.x86_64-1.42.1.iso'
 image_arch='x86_64'
 schema_ver='6.2'
-base_system='42.1'
-uefi_enabled='true'
+base_system='Leap_42.1'
+uefi_enabled='false'
 declare -a repos=()
 
 dir="$(pwd)"
