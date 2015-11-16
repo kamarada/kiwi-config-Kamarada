@@ -1,0 +1,1 @@
+This file only tells the script at /etc/X11/xinit/xinitrc.d/xdg-user-dirs.sh that it is running for the first time. Do not delete this file yourself unless you know what you are doing.

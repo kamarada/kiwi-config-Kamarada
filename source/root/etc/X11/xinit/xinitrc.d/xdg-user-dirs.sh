@@ -1,6 +1,10 @@
 #!/bin/sh
 /usr/bin/xdg-user-dirs-update
 
+if [ ! -e "$HOME/.xdg-user-dirs-has-not-run-yet" ]; then
+    exit 0
+fi
+
 desktop="`xdg-user-dir DESKTOP 2>/dev/null`"
 if test -z "$desktop"; then
     desktop=$HOME/Desktop
@@ -64,3 +68,43 @@ fi
 if [ -d "$videos" -a ! -e "$videos/.directory" -a -e "/usr/share/kde4/config/SuSE/default/videos.directory" ]; then
     cp /usr/share/kde4/config/SuSE/default/videos.directory "$videos/.directory"
 fi
+
+if [ ! -e "$desktop/Home.desktop" -a -e "/usr/share/kde4/config/SuSE/default/Home.desktop" ]; then
+    cp /usr/share/kde4/config/SuSE/default/Home.desktop "$desktop/"
+fi
+
+if [ -e "/usr/bin/firefox" -a ! -e "$desktop/MozillaFirefox.desktop" -a -e "/usr/share/kde4/config/SuSE/default/MozillaFirefox.desktop" ]; then
+    cp /usr/share/kde4/config/SuSE/default/MozillaFirefox.desktop "$desktop/"
+    chmod u+x "$desktop/MozillaFirefox.desktop" 2>/dev/null
+fi
+
+if [ -e "/usr/bin/oofromtemplate" -a  ! -e "$desktop/Office.desktop" -a -e "/usr/share/kde4/config/SuSE/default/Office.desktop" ]; then
+    cp /usr/share/kde4/config/SuSE/default/Office.desktop "$desktop/"
+    chmod u+x "$desktop/Office.desktop" 2>/dev/null
+fi
+
+if [ -e "/usr/bin/SUSEgreeter" -a ! -e "$desktop/SuSE.desktop" -a -e "/usr/share/kde4/config/SuSE/default/SuSE.desktop" ]; then
+    cp /usr/share/kde4/config/SuSE/default/SuSE.desktop "$desktop/"
+    chmod u+x "$desktop/SuSE.desktop" 2>/dev/null
+fi
+
+if [ ! -e "$desktop/Support.desktop" -a -e "/usr/share/kde4/config/SuSE/default/Support.desktop" ]; then
+    cp /usr/share/kde4/config/SuSE/default/Support.desktop "$desktop/"
+    chmod u+x "$desktop/Support.desktop" 2>/dev/null
+fi
+
+if [ -e "/usr/share/applications/YaST2/live-installer.desktop" -a ! -e "$desktop/live-installer.desktop" -a -e "/usr/share/kde4/config/SuSE/default/live-installer.desktop" ]; then
+    cp /usr/share/kde4/config/SuSE/default/live-installer.desktop "$desktop/"
+    chmod u+x "$desktop/live-installer.desktop"
+fi
+
+if [ ! -e "$desktop/trash.desktop" -a -e "/usr/share/kde4/config/SuSE/default/trash.desktop" ]; then
+    cp /usr/share/kde4/config/SuSE/default/trash.desktop "$desktop/"
+fi
+
+if [ ! -e "$desktop/org.kde.kinfocenter.desktop" -a -e "/usr/share/applications/org.kde.kinfocenter.desktop" ]; then
+    cp /usr/share/applications/org.kde.kinfocenter.desktop "$desktop/"
+    chmod u+x "$desktop/org.kde.kinfocenter.desktop" 2>/dev/null
+fi
+
+rm $HOME/.xdg-user-dirs-has-not-run-yet
