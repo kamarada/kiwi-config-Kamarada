@@ -122,7 +122,7 @@ done
 # Create appliance.
 echo
 echo "** Creating appliance..."
-rm -rf build/root
+rm -rf $dst/build/image-root
 
 # run_cmd "$kiwi --build $src/ -d $dst"
 mkdir -p $dst/build/image-root

@@ -48,14 +48,23 @@
         <namedCollection name="base"/>
         <namedCollection name="kde"/>
         <namedCollection name="x11"/>
+        <package name="MozillaFirefox-translations-common"/>
         <package name="branding-openSUSE"/>
         <!-- workaround for bnc#892087 -->
         <package name="e2fsprogs" bootinclude="true"/>
         <package name="gfxboot-branding-openSUSE" bootinclude="true" bootdelete="true"/>
+        <package name="gimp-help-pt_BR"/>
         <package name="grub2-branding-openSUSE" bootinclude="true"/>
+        <package name="ispell-brazilian"/>
+        <package name="kde-l10n-pt_BR"/>
+        <package name="kde-l10n-pt_BR-data"/>
+        <package name="kde-l10n-pt_BR-doc"/>
+        <package name="myspell-lightproof-pt_BR"/>
+        <package name="myspell-pt_BR"/>
         <package name="plymouth" bootinclude="true"/>
         <package name="plymouth-branding-openSUSE" bootinclude="true"/>
         <package name="sddm"/>
+        <package name="translation-update-pt_BR"/>
         <package name="virtualbox-guest-kmp-default"/>
         <package name="virtualbox-guest-tools"/>
         <package name="virtualbox-guest-x11"/>
@@ -94,6 +103,7 @@
         <package name="xorg-x11-driver-input"/>
         <package name="xorg-x11-driver-video"/>
         <package name="yast2-live-installer"/>
+        <package name="yast2-trans-pt_BR"/>
     </packages>
     <packages type="bootstrap">
         <package name="filesystem"/>
