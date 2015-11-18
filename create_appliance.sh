@@ -124,7 +124,11 @@ echo
 echo "** Creating appliance..."
 rm -rf build/root
 
-run_cmd "$kiwi --build $src/ -d $dst"
+# run_cmd "$kiwi --build $src/ -d $dst"
+mkdir -p $dst/build/image-root
+run_cmd "$kiwi --prepare $src --root $dst/build/image-root"
+umount -f -l $dst/build/image-root/sys
+run_cmd "$kiwi --create $dst/build/image-root --destdir $dst"
 
 # And we're done!
 qemu_options='-snapshot'
