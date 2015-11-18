@@ -44,45 +44,21 @@
     <repository type="rpm-md">
         <source path="http://download.opensuse.org/update/leap/42.1/oss/"/>
     </repository>
-    <packages type="image" patternType="onlyRequired">
+    <packages type="image" patternType="plusRecommended">
         <namedCollection name="base"/>
         <namedCollection name="kde"/>
-        <namedCollection name="kde_yast"/>
-        <namedCollection name="minimal_base"/>
-        <namedCollection name="yast2_basis"/>
-
-        <package name="NetworkManager"/>
-        <package name="SuSEfirewall2"/>
+        <namedCollection name="x11"/>
         <package name="branding-openSUSE"/>
-        <package name="btrfsprogs"/>
         <!-- workaround for bnc#892087 -->
         <package name="e2fsprogs" bootinclude="true"/>
         <package name="gfxboot-branding-openSUSE" bootinclude="true" bootdelete="true"/>
-        <package name="glibc"/>
-        <package name="glibc-locale"/>
-        <package name="grub"/>
-        <package name="grub2"/>
         <package name="grub2-branding-openSUSE" bootinclude="true"/>
-        <package name="gsettings-backend-dconf"/>
-        <package name="iputils"/>
-        <package name="kernel-default"/>
-        <package name="konsole"/>
-        <package name="kwin5"/>
-        <package name="less"/>
-        <package name="plasma5-openSUSE"/>
-        <package name="plymouth"/>
+        <package name="plymouth" bootinclude="true"/>
         <package name="plymouth-branding-openSUSE" bootinclude="true"/>
-        <package name="sax3"/>
         <package name="sddm"/>
-        <package name="soprano-backend-virtuoso"/>
-        <package name="sudo"/>
-        <package name="syslog-ng"/>
-        <package name="timezone"/>
-        <package name="vim"/>
         <package name="virtualbox-guest-kmp-default"/>
         <package name="virtualbox-guest-tools"/>
         <package name="virtualbox-guest-x11"/>
-        <package name="x11-tools"/>
         <package name="xdg-user-dirs"/>
         <package name="xdg-user-dirs-lang"/>
         <package name="xf86-input-joystick"/>
@@ -115,18 +91,16 @@
         <package name="xf86-video-trident"/>
         <package name="xf86-video-vmware"/>
         <package name="xf86-video-voodoo"/>
-        <package name="xorg-x11"/>
         <package name="xorg-x11-driver-input"/>
         <package name="xorg-x11-driver-video"/>
-        <package name="xorg-x11-fonts"/>
-        <package name="xorg-x11-server"/>
         <package name="yast2-live-installer"/>
-        <package name="yast2-x11"/>
-        <package name="zypper"/>
     </packages>
     <packages type="bootstrap">
         <package name="filesystem"/>
         <package name="glibc-locale"/>
         <package name="module-init-tools"/>
     </packages>
+    <packages type="delete">
+        <package name="catdoc"/>
+     </packages>
 </image>
