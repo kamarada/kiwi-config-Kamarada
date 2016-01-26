@@ -129,6 +129,8 @@ mkdir -p $dst/build/image-root
 run_cmd "$kiwi --prepare $src --root $dst/build/image-root"
 umount -f -l $dst/build/image-root/sys
 run_cmd "$kiwi --create $dst/build/image-root --destdir $dst"
+run_cmd "$kiwi --create $dst/build/image-root --destdir $dst"
+run_cmd "sha256sum $image_file > $image_file.sha256"
 
 # And we're done!
 qemu_options='-snapshot'

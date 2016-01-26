@@ -47,6 +47,7 @@
     <packages type="image" patternType="plusRecommended">
         <namedCollection name="base"/>
         <namedCollection name="kde"/>
+        <namedCollection name="laptop"/>
         <namedCollection name="x11"/>
         <package name="MozillaFirefox-translations-common"/>
         <package name="branding-openSUSE"/>
@@ -54,13 +55,17 @@
         <package name="e2fsprogs" bootinclude="true"/>
         <package name="gfxboot-branding-openSUSE" bootinclude="true" bootdelete="true"/>
         <package name="gimp-help-pt_BR"/>
+        <package name="gparted"/>
+        <package name="gparted-lang"/>
         <package name="grub2-branding-openSUSE" bootinclude="true"/>
         <package name="ispell-brazilian"/>
         <package name="kde-l10n-pt_BR"/>
         <package name="kde-l10n-pt_BR-data"/>
         <package name="kde-l10n-pt_BR-doc"/>
+        <package name="kolourpaint"/>
         <package name="myspell-lightproof-pt_BR"/>
         <package name="myspell-pt_BR"/>
+        <package name="nano"/>
         <package name="plymouth" bootinclude="true"/>
         <package name="plymouth-branding-openSUSE" bootinclude="true"/>
         <package name="sddm"/>
