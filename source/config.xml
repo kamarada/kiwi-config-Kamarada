@@ -6,7 +6,7 @@
         <specification>openSUSE Leap 42.1 Live system</specification>
     </description>
     <preferences>
-        <type boot="isoboot/suse-leap42.1" bootloader="grub2" checkprebuilt="true" flags="overlay" fsnocheck="true" hybrid="true" image="iso" primary="true" volid="openSUSE Leap 42.1 KDE Live">
+        <type boot="isoboot/suse-leap42.1" bootloader="grub2" checkprebuilt="true" flags="overlay" fsnocheck="true" hybrid="true" hybridpersistent="true" hybridpersistent_filesystem="ext4" image="iso" primary="true" volid="openSUSE Leap 42.1 KDE Live">
             <split>
                 <temporary>
                     <file name="/etc"/>
