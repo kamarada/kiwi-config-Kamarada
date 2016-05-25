@@ -64,6 +64,7 @@
         <package name="kde-l10n-pt_BR-data"/>
         <package name="kde-l10n-pt_BR-doc"/>
         <package name="kolourpaint"/>
+        <package name="ksnapshot" replaces="spectacle"/>
         <package name="myspell-lightproof-pt_BR"/>
         <package name="myspell-pt_BR"/>
         <package name="nano"/>
