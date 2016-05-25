@@ -6,7 +6,7 @@
         <specification>openSUSE Leap 42.1 Live system</specification>
     </description>
     <preferences>
-        <type boot="isoboot/suse-leap42.1" bootloader="grub2" checkprebuilt="true" flags="overlay" fsnocheck="true" hybrid="true" hybridpersistent="true" hybridpersistent_filesystem="ext4" image="iso" primary="true" volid="openSUSE Leap 42.1 KDE Live">
+        <type boot="isoboot/suse-leap42.1" bootloader="grub2" checkprebuilt="true" firmware="uefi" flags="overlay" fsnocheck="true" hybrid="true" hybridpersistent="true" hybridpersistent_filesystem="ext4" image="iso" kernelcmdline="splash" primary="true" volid="openSUSE Leap 42.1 KDE Live">
             <split>
                 <temporary>
                     <file name="/etc"/>
@@ -58,6 +58,7 @@
         <package name="gparted"/>
         <package name="gparted-lang"/>
         <package name="grub2-branding-openSUSE" bootinclude="true"/>
+        <package name="grub2-x86_64-efi"/>
         <package name="ispell-brazilian"/>
         <package name="kde-l10n-pt_BR"/>
         <package name="kde-l10n-pt_BR-data"/>
@@ -69,6 +70,7 @@
         <package name="plymouth" bootinclude="true"/>
         <package name="plymouth-branding-openSUSE" bootinclude="true"/>
         <package name="sddm"/>
+        <package name="shim" bootinclude="true"/>
         <package name="translation-update-pt_BR"/>
         <package name="virtualbox-guest-kmp-default"/>
         <package name="virtualbox-guest-tools"/>

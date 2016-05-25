@@ -13,7 +13,7 @@ image_file='image/openSUSE-Leap-42.1-KDE-Live.x86_64-1.42.1.iso'
 image_arch='x86_64'
 schema_ver='6.2'
 base_system='Leap_42.1'
-uefi_enabled='false'
+uefi_enabled='true'
 declare -a repos=()
 
 dir="$(pwd)"
@@ -129,7 +129,7 @@ mkdir -p $dst/build/image-root
 run_cmd "$kiwi --prepare $src --root $dst/build/image-root"
 umount -f -l $dst/build/image-root/sys
 run_cmd "$kiwi --create $dst/build/image-root --destdir $dst"
-run_cmd "sha256sum $image_file > $image_file.sha256"
+sha256sum $image_file > $image_file.sha256
 
 # And we're done!
 qemu_options='-snapshot'

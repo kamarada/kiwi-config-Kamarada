@@ -41,7 +41,7 @@ set -x
 # Redirect stderr of all commands to stdout
 # exec 2>&1
 
-# Removes any package starting with package-lists-
+# Remove any package starting with package-lists-
 # pl=`rpmqpack | grep package-lists-` || true
 # test -z "$pl" || rpm -e $pl
 
@@ -111,14 +111,16 @@ zypper addrepo -d -f -n "openSUSE-Leap-42.1-Update-Debug-Non-Oss" http://downloa
 zypper addrepo -d -f -n "openSUSE-Leap-42.1-Source" http://download.opensuse.org/source/distribution/leap/42.1/repo/oss/ "repo-source"
 zypper addrepo -d -f -n "openSUSE-Leap-42.1-Source-Non-Oss" http://download.opensuse.org/source/distribution/leap/42.1/repo/non-oss/ "repo-source-non-oss"
 
+# Only required packages are installed
 sed --in-place -e 's/# solver.onlyRequires.*/solver.onlyRequires = true/' /etc/zypp/zypp.conf
 
-# /etc/sudoers hack to fix #297695 
+# /etc/sudoers hack to fix #297695
 # (Installation Live CD: no need to ask for password of root)
 sed -i -e "s/ALL ALL=(ALL) ALL/ALL ALL=(ALL) NOPASSWD: ALL/" /etc/sudoers 
 chmod 0440 /etc/sudoers
 
-/usr/sbin/useradd -m -u 999 linux -c "Live-CD User" -p ""
+# Create LiveDVD user
+/usr/sbin/useradd -m -u 999 linux -c "LiveDVD User" -p ""
 
 # Delete passwords
 passwd -d root
