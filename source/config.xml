@@ -22,10 +22,7 @@
         </type>
         <version>1.42.1</version>
         <packagemanager>zypper</packagemanager>
-        <locale>pt_BR</locale>
-        <keytable>br-abnt2.map.gz</keytable>
-        <timezone>America/Sao_Paulo</timezone>
-        <hwclock>localtime</hwclock>
+        <locale>en_US</locale>
         <rpm-excludedocs>false</rpm-excludedocs>
         <rpm-check-signatures>false</rpm-check-signatures>
         <rpm-force>false</rpm-force>
@@ -110,6 +107,7 @@
         <package name="xf86-video-voodoo"/>
         <package name="xorg-x11-driver-input"/>
         <package name="xorg-x11-driver-video"/>
+        <package name="yast2-firstboot"/>
         <package name="yast2-live-installer"/>
         <package name="yast2-trans-pt_BR"/>
     </packages>

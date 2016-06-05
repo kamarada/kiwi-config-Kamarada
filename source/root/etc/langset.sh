@@ -1,5 +1,7 @@
 #!/bin/sh
 
+exit 0 # Let's try not to use it for a while
+
 lang=en_US
 for o in $(cat /proc/cmdline); do
     case $o in

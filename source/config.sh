@@ -62,6 +62,7 @@ echo "Configure image: [$kiwi_iname]..."
 # SuSEconfig
 echo "** Running suseConfig..."
 suseConfig
+# baseUpdateSysConfig /etc/sysconfig/language RC_LANG "en_US.UTF-8"
 
 echo "** Running ldconfig..."
 /sbin/ldconfig
@@ -75,7 +76,7 @@ for s in sshd cron wicked purge-kernels; do
     systemctl -f disable $s
 done
 
-for s in langset NetworkManager SuSEfirewall2; do
+for s in NetworkManager SuSEfirewall2; do
     systemctl -f enable $s
 done
 
@@ -162,16 +163,8 @@ baseSetRunlevel 5
 # Sysconfig update
 echo '** Update sysconfig entries...'
 
-baseUpdateSysConfig /etc/sysconfig/console CONSOLE_ENCODING "UTF-8"
-baseUpdateSysConfig /etc/sysconfig/console CONSOLE_FONT "lat9w-16.psfu"
-baseUpdateSysConfig /etc/sysconfig/console CONSOLE_MAGIC "(K"
-baseUpdateSysConfig /etc/sysconfig/console CONSOLE_SCREENMAP "trivial"
 baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER "sddm"
 baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER_AUTOLOGIN "linux"
-baseUpdateSysConfig /etc/sysconfig/keyboard COMPOSETABLE "clear latin1.add"
-# baseUpdateSysConfig /etc/sysconfig/keyboard KEYTABLE "br-abnt2.map.gz"
-baseUpdateSysConfig /etc/sysconfig/keyboard YAST_KEYBOARD "portugese-br,pc104"
-# baseUpdateSysConfig /etc/sysconfig/language RC_LANG "pt_BR.UTF-8"
 baseUpdateSysConfig /etc/sysconfig/network/config FIREWALL "yes"
 baseUpdateSysConfig /etc/sysconfig/windowmanager DEFAULT_WM "plasma5"
 
@@ -186,6 +179,12 @@ c_rehash
 rm -rf /usr/share/doc/packages/*
 # rm -rf /usr/share/doc/manual/*
 # rm -rf /opt/kde*
+
+# YaST Firstboot
+mv /etc/YaST2/firstboot.xml /etc/YaST2/firstboot.xml.suse
+cp /etc/YaST2/firstboot.xml.kamarada /etc/YaST2/firstboot.xml
+touch /var/lib/YaST2/reconfig_system
+baseUpdateSysConfig /etc/sysconfig/firstboot FIRSTBOOT_WELCOME_DIR "/usr/share/firstboot/"
 
 #======================================
 # Umount kernel filesystems
