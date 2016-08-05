@@ -41,6 +41,10 @@
     <repository type="rpm-md">
         <source path="http://download.opensuse.org/update/leap/42.1/oss/"/>
     </repository>
+    <!-- printing -->
+    <repository type="rpm-md">
+        <source path="http://download.opensuse.org/repositories/Printing/openSUSE_Leap_42.1/"/>
+    </repository>
     <!-- wine -->
     <repository type="rpm-md">
         <source path="http://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Leap_42.1/"/>
@@ -60,6 +64,7 @@
         <package name="gparted-lang"/>
         <package name="grub2-branding-openSUSE" bootinclude="true"/>
         <package name="grub2-x86_64-efi"/>
+        <package name="hplip"/>
         <package name="ispell-brazilian"/>
         <package name="kde-l10n-pt_BR"/>
         <package name="kde-l10n-pt_BR-data"/>
