@@ -1,0 +1,8 @@
+[repo-source]
+name=openSUSE-Leap-42.1-Source
+enabled=0
+autorefresh=0
+baseurl=http://download.opensuse.org/source/distribution/leap/42.1/repo/oss/
+path=/
+type=NONE
+keeppackages=0

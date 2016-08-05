@@ -101,16 +101,6 @@ suseImportBuildKey
 # Add repositories
 # bash -x /var/lib/livecd/geturls.sh
 # rm /var/lib/livecd/geturls.sh
-zypper addrepo -f -n "openSUSE-Leap-42.1-Update" http://download.opensuse.org/update/leap/42.1/oss/ "repo-update"
-zypper addrepo -f -n "openSUSE-Leap-42.1-Update-Non-Oss" http://download.opensuse.org/update/leap/42.1/non-oss/ "repo-update-non-oss"
-zypper addrepo -f -n "openSUSE-Leap-42.1-Oss" http://download.opensuse.org/distribution/leap/42.1/repo/oss/ "repo-oss"
-zypper addrepo -d -f -n "openSUSE-Leap-42.1-Non-Oss" http://download.opensuse.org/distribution/leap/42.1/repo/non-oss/ "repo-non-oss"
-zypper addrepo -d -f -n "openSUSE-Leap-42.1-Debug" http://download.opensuse.org/debug/distribution/leap/42.1/repo/oss/ "repo-debug"
-zypper addrepo -d -f -n "openSUSE-Leap-42.1-Debug-Non-Oss" http://download.opensuse.org/debug/distribution/leap/42.1/repo/non-oss/ "repo-debug-non-oss"
-zypper addrepo -d -f -n "openSUSE-Leap-42.1-Update-Debug" http://download.opensuse.org/debug/update/leap/42.1/oss/ "repo-debug-update"
-zypper addrepo -d -f -n "openSUSE-Leap-42.1-Update-Debug-Non-Oss" http://download.opensuse.org/debug/update/leap/42.1/non-oss/ "repo-debug-update-non-oss"
-zypper addrepo -d -f -n "openSUSE-Leap-42.1-Source" http://download.opensuse.org/source/distribution/leap/42.1/repo/oss/ "repo-source"
-zypper addrepo -d -f -n "openSUSE-Leap-42.1-Source-Non-Oss" http://download.opensuse.org/source/distribution/leap/42.1/repo/non-oss/ "repo-source-non-oss"
 
 # Only required packages are installed
 sed --in-place -e 's/# solver.onlyRequires.*/solver.onlyRequires = true/' /etc/zypp/zypp.conf
