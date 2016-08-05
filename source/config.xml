@@ -41,6 +41,10 @@
     <repository type="rpm-md">
         <source path="http://download.opensuse.org/update/leap/42.1/oss/"/>
     </repository>
+    <!-- wine -->
+    <repository type="rpm-md">
+        <source path="http://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Leap_42.1/"/>
+    </repository>
     <packages type="image" patternType="plusRecommended">
         <namedCollection name="base"/>
         <namedCollection name="kde"/>
@@ -73,6 +77,9 @@
         <package name="virtualbox-guest-kmp-default"/>
         <package name="virtualbox-guest-tools"/>
         <package name="virtualbox-guest-x11"/>
+        <package name="wine"/>
+        <package name="wine-mono"/>
+        <package name="wine-gecko"/>
         <package name="xdg-user-dirs"/>
         <package name="xdg-user-dirs-lang"/>
         <package name="xf86-input-joystick"/>
