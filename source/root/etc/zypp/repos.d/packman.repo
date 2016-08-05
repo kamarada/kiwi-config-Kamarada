@@ -1,0 +1,7 @@
+[packman]
+name=packman
+enabled=0
+autorefresh=0
+baseurl=http://packman.inode.at/suse/openSUSE_Leap_42.1/
+type=rpm-md
+keeppackages=0
