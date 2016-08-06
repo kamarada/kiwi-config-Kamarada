@@ -122,6 +122,7 @@
         <package name="xf86-video-voodoo"/>
         <package name="xorg-x11-driver-input"/>
         <package name="xorg-x11-driver-video"/>
+        <package name="yakuake"/>
         <package name="yast2-firstboot"/>
         <package name="yast2-live-installer"/>
         <package name="yast2-trans-pt_BR"/>

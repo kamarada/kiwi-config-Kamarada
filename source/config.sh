@@ -170,6 +170,11 @@ rm -rf /usr/share/doc/packages/*
 # rm -rf /usr/share/doc/manual/*
 # rm -rf /opt/kde*
 
+# Symlink for helping people interested in installing Oracle Java 8
+# https://forums.opensuse.org/showthread.php/505779-Unable-to-install-Oracle-Java-8-OpenSUSE-13-2
+# https://forums.opensuse.org/showthread.php/511150-install-oracle-java-8-on-leap-42-1
+ln -s /usr/sbin/update-alternatives /usr/sbin/alternatives
+
 # YaST Firstboot
 mv /etc/YaST2/firstboot.xml /etc/YaST2/firstboot.xml.suse
 cp /etc/YaST2/firstboot.xml.kamarada /etc/YaST2/firstboot.xml
