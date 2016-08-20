@@ -9,14 +9,14 @@
 # Contact: feedback@susestudio.com
 # ============================================================================
 
-image_file='image/openSUSELeap42.1KDELive.x86_64-0.0.1.iso'
+image_file='image/openSUSE-Leap-42.2-KDE-Live.x86_64-1.42.2.iso'
 image_arch='x86_64'
 schema_ver='5.2'
-base_system='Leap_42.1'
+base_system='Leap_42.2'
 uefi_enabled='true'
 declare -a repos=()
 
-dir="$(dirname $0)"
+dir="$(pwd)"
 src="$dir/source"
 dst="$dir/image"
 

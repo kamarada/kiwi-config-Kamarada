@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<image name='openSUSELeap42.1KDELive' displayname='openSUSELeap42.1KDELive' schemaversion='5.2'>
+<image name='openSUSE-Leap-42.2-KDE-Live' displayname='openSUSE_Leap_42.2_KDE_Live' schemaversion='5.2'>
   <description type='system'>
     <author>Projeto Linux Kamarada</author>
-    <contact>studio-devel@suse.de</contact>
-    <specification>openSUSE Leap 42.1 KDE 4</specification>
+    <contact>linuxkamarada@gmail.com</contact>
+    <specification>openSUSE Leap 42.2 Live system</specification>
   </description>
   <preferences>
-    <type checkprebuilt='true' boot='isoboot/suse-leap42.1' fsnocheck='true' bootloader='grub2' firmware='uefi' flags='overlay' hybrid='true' image='iso'>
+    <type checkprebuilt='true' boot='isoboot/suse-leap42.1' fsnocheck='true' bootloader='grub2' firmware='uefi' flags='overlay' hybrid='true' image='iso' volid='openSUSE Leap 42.2 KDE Live'>
       <split>
         <temporary>
           <file name='/var'/>
@@ -20,7 +20,7 @@
         </temporary>
       </split>
     </type>
-    <version>0.0.1</version>
+    <version>1.42.2</version>
     <packagemanager>zypper</packagemanager>
     <rpm-check-signatures>false</rpm-check-signatures>
     <rpm-force>false</rpm-force>
