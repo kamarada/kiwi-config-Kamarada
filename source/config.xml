@@ -84,10 +84,12 @@
     <package name='glibc-locale'/>
     <package name='module-init-tools'/>
   </packages>
-  <repository type='rpm-md'>
-    <source path='http://download.opensuse.org/repositories/openSUSE:/Leap:/42.1/standard/'/>
+  <!-- openSUSE-Leap-42.1-Oss -->
+  <repository type='yast2'>
+    <source path='http://download.opensuse.org/distribution/leap/42.2/repo/oss/'/>
   </repository>
+  <!-- openSUSE-Leap-42.2-Update -->
   <repository type='rpm-md'>
-    <source path='http://download.opensuse.org/update/leap/42.1/oss/'/>
+    <source path='http://download.opensuse.org/update/leap/42.2/oss/'/>
   </repository>
 </image>

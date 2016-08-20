@@ -1,0 +1,8 @@
+[repo-source-non-oss]
+name=openSUSE-Leap-42.2-Source-Non-Oss
+enabled=0
+autorefresh=0
+baseurl=http://download.opensuse.org/source/distribution/leap/42.2/repo/non-oss/
+path=/
+type=yast2
+keeppackages=0

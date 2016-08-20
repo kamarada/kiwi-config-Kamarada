@@ -1,0 +1,8 @@
+[repo-update-non-oss]
+name=openSUSE-Leap-42.2-Update-Non-Oss
+enabled=0
+autorefresh=0
+baseurl=http://download.opensuse.org/update/leap/42.2/non-oss/
+path=/
+type=rpm-md
+keeppackages=0

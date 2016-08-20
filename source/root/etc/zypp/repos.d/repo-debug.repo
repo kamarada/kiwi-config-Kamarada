@@ -1,0 +1,8 @@
+[repo-debug]
+name=openSUSE-Leap-42.2-Debug
+enabled=0
+autorefresh=0
+baseurl=http://download.opensuse.org/debug/distribution/leap/42.2/repo/oss/
+path=/
+type=NONE
+keeppackages=0
