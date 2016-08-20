@@ -35,6 +35,7 @@
   <packages type='image' patternType='plusRecommended'>
     <namedCollection name='base'/>
     <namedCollection name='kde'/>
+    <namedCollection name='laptop'/>
     <namedCollection name='x11'/>
     <package name='akregator5'/>
     <package name='branding-openSUSE'/>
