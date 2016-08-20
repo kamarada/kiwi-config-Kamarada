@@ -6,7 +6,7 @@
     <specification>openSUSE Leap 42.2 Live system</specification>
   </description>
   <preferences>
-    <type checkprebuilt='true' boot='isoboot/suse-leap42.1' fsnocheck='true' bootloader='grub2' firmware='uefi' flags='overlay' hybrid='true' image='iso' volid='openSUSE Leap 42.2 KDE Live'>
+    <type checkprebuilt='true' boot='isoboot/suse-leap42.1' fsnocheck='true' bootloader='grub2' firmware='uefi' flags='overlay' hybrid='true' image='iso' volid='openSUSE Leap 42.2 KDE Live'><!-- TODO Use proper boot image description when available -->
       <split>
         <temporary>
           <file name='/var'/>
@@ -24,7 +24,7 @@
     <packagemanager>zypper</packagemanager>
     <rpm-check-signatures>false</rpm-check-signatures>
     <rpm-force>false</rpm-force>
-    <boot-theme>studio</boot-theme>
+    <boot-theme>openSUSE</boot-theme>
   </preferences>
   <users group='users'>
     <user name='linux' pwd='$1$WJ0pBqnE$yLrQtZ9sUqMSnF6cxWLsk/' home='/home/linux' shell='/bin/bash'/>
@@ -32,57 +32,38 @@
   <users group='root'>
     <user name='root' pwd='$1$AyDBmhZt$lyfsf3sfBFV7mzRGYufIE.' home='/root' shell='/bin/bash'/>
   </users>
-  <packages type='image' patternType='onlyRequired'>
-    <package name='grub'/>
-    <package name='shim' bootinclude='true'/>
-    <package name='grub2-x86_64-efi'/>
-    <package name='kdebase4-openSUSE'/>
-    <package name='patterns-openSUSE-kde'/>
-    <package name='patterns-openSUSE-minimal_base'/>
-    <package name='sddm'/>
-    <package name='konsole'/>
-    <package name='libyui-qt-pkg7'/>
-    <package name='kwin'/>
-    <package name='soprano-backend-virtuoso'/>
-    <package name='yast2-control-center-qt'/>
-    <package name='kdebase4-session'/>
-    <package name='sax3'/>
-    <package name='x11-tools'/>
-    <package name='xorg-x11'/>
-    <package name='xorg-x11-driver-input'/>
-    <package name='xorg-x11-driver-video'/>
-    <package name='xorg-x11-fonts'/>
-    <package name='grub2-branding-openSUSE'/>
-    <package name='gfxboot-branding-openSUSE'/>
-    <package name='yast2-x11'/>
-    <package name='SuSEfirewall2'/>
-    <package name='less'/>
-    <package name='yast2-firstboot'/>
-    <package name='e2fsprogs'/>
+  <packages type='image' patternType='plusRecommended'>
+    <namedCollection name='base'/>
+    <namedCollection name='kde'/>
+    <namedCollection name='x11'/>
+    <package name='akregator5'/>
     <package name='branding-openSUSE'/>
-    <package name='patterns-openSUSE-base'/>
-    <package name='grub2'/>
-    <package name='iputils'/>
-    <package name='kernel-default'/>
-    <package name='plymouth'/>
-    <package name='syslog-ng'/>
-    <package name='vim'/>
-    <package name='zypper'/>
-    <package name='timezone'/>
-    <package name='gsettings-backend-dconf'/>
-    <package name='glibc'/>
-    <package name='glibc-locale'/>
-    <package name='yast2-live-installer'/>
-    <package name='yast2-users'/>
-    <package name='btrfsprogs'/>
-    <archive name='plymouth.tar' bootinclude='true'/>
-    <package name='gfxboot-devel' bootinclude='true'/>
-    <archive name='sddm.tar'/>
+    <!-- workaround for bnc#892087 -->
+    <package name='e2fsprogs' bootinclude='true'/>
+    <package name='gfxboot-branding-openSUSE' bootinclude='true' bootdelete='true'/>
+    <package name='grub2-branding-openSUSE' bootinclude='true'/>
+    <package name='gwenview5'/>
+    <package name='kdepim'/>
+    <package name='kleopatra5'/>
+    <package name='kmail5'/>
+    <package name='knotes5'/>
+    <package name='kontact5'/>
+    <package name='korganizer5'/>
+    <package name='kwalletmanager5'/>
+    <package name='plymouth' bootinclude='true'/>
+    <package name='plymouth-branding-openSUSE' bootinclude='true'/>
+    <package name='sddm'/>
+    <package name='shim' bootinclude='true'/>
+    <package name='xfsprogs'/>
   </packages>
   <packages type='bootstrap'>
     <package name='filesystem'/>
     <package name='glibc-locale'/>
     <package name='module-init-tools'/>
+  </packages>
+  <packages type='delete'>
+    <package name='kmix'/>
+    <package name='kwalletmanager'/>
   </packages>
   <!-- openSUSE-Leap-42.1-Oss -->
   <repository type='yast2'>

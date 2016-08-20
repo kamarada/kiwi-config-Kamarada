@@ -18,8 +18,21 @@
 #======================================
 # Functions...
 #--------------------------------------
+
+# The .kconfig file allows to make use of a common set of functions.
+# Functions specific to SUSE Linux specific begin with the name suse.
+# Functions applicable to all linux systems starts with the name base.
 test -f /.kconfig && . /.kconfig
+
+# The .profile environment file contains a specific set of variables.
+# Some of the functions above makes use of the variables.
 test -f /.profile && . /.profile
+
+# Exit immediately if a command exits with a non-zero status.
+# set -e
+
+# Print commands and their arguments as they are executed.
+set -x
 
 #======================================
 # Greeting...
@@ -45,14 +58,6 @@ baseSetRunlevel 5
 #--------------------------------------
 suseImportBuildKey
 
-
-#======================================
-# Firewall Configuration
-#--------------------------------------
-echo '** Configuring firewall...'
-chkconfig SuSEfirewall2_init on
-chkconfig SuSEfirewall2_setup on
-
 sed --in-place -e 's/# solver.onlyRequires.*/solver.onlyRequires = true/' /etc/zypp/zypp.conf
 
 #======================================
@@ -61,17 +66,10 @@ sed --in-place -e 's/# solver.onlyRequires.*/solver.onlyRequires = true/' /etc/z
 echo '** Update sysconfig entries...'
 baseUpdateSysConfig /etc/sysconfig/keyboard KEYTABLE english-us
 baseUpdateSysConfig /etc/sysconfig/network/config FIREWALL yes
-baseUpdateSysConfig /etc/init.d/suse_studio_firstboot NETWORKMANAGER yes
 baseUpdateSysConfig /etc/sysconfig/console CONSOLE_FONT lat9w-16.psfu
 baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER_AUTOLOGIN linux
 baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER sddm
-baseUpdateSysConfig /etc/sysconfig/windowmanager DEFAULT_WM kde4
-
-test -d /studio || mkdir /studio
-cp /image/.profile /studio/profile
-cp /image/config.xml /studio/config.xml
-rm -rf /studio/overlay-tmp
-true
+baseUpdateSysConfig /etc/sysconfig/windowmanager DEFAULT_WM plasma5
 
 #======================================
 # SSL Certificates Configuration
@@ -79,10 +77,19 @@ true
 echo '** Rehashing SSL Certificates...'
 c_rehash
 
+# Use NetworkManager to configure the network at run-time
+systemctl -f disable wicked
+systemctl -f enable NetworkManager
 
-sh /studio/configure_kdm4_theme.sh
+# Enable firewall
+systemctl -f enable SuSEfirewall2
 
+# Disable SSH
+systemctl -f disable sshd
 
-
-sh /studio/configure_kde4_background.sh
-
+# Some KDE settings
+for script in /usr/share/opensuse-kiwi/live_user_scripts/*.sh; do
+    if test -f $script; then
+        su - linux -c "/bin/bash $script"
+    fi
+done
