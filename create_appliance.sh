@@ -132,6 +132,7 @@ echo "** Creating appliance..."
 rm -rf build/root
 
 run_cmd "$kiwi --build $src/ -d $dst"
+sha256sum $image_file > $image_file.sha256
 
 # And we're done!
 qemu_options='-snapshot'
