@@ -93,6 +93,21 @@ systemctl -f enable SuSEfirewall2
 # Disable SSH
 systemctl -f disable sshd
 
+#======================================
+# /etc/sudoers hack to fix #297695
+# (Installation Live DVD: no need to ask for password of root)
+#--------------------------------------
+sed -i -e "s/ALL ALL=(ALL) ALL/ALL ALL=(ALL) NOPASSWD: ALL/" /etc/sudoers
+chmod 0440 /etc/sudoers
+
+/usr/sbin/useradd -m -u 999 linux -c "LiveDVD User" -p ""
+
+# delete passwords
+passwd -d root
+passwd -d linux
+# empty password is ok
+pam-config -a --nullok
+
 # Some KDE settings
 for script in /usr/share/opensuse-kiwi/live_user_scripts/*.sh; do
     if test -f $script; then

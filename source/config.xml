@@ -26,11 +26,11 @@
     <rpm-force>false</rpm-force>
     <boot-theme>openSUSE</boot-theme>
   </preferences>
-  <users group='users'>
+  <!--<users group='users'>
     <user name='linux' pwd='$1$WJ0pBqnE$yLrQtZ9sUqMSnF6cxWLsk/' home='/home/linux' shell='/bin/bash'/>
-  </users>
+  </users>-->
   <users group='root'>
-    <user name='root' pwd='$1$AyDBmhZt$lyfsf3sfBFV7mzRGYufIE.' home='/root' shell='/bin/bash'/>
+    <user name='root' pwd='' home='/root' shell='/bin/bash'/>
   </users>
   <packages type='image' patternType='plusRecommended'>
     <namedCollection name='base'/>
