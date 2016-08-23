@@ -77,6 +77,12 @@ baseUpdateSysConfig /etc/sysconfig/windowmanager DEFAULT_WM plasma5
 echo '** Rehashing SSL Certificates...'
 c_rehash
 
+# YaST Firstboot
+mv /etc/YaST2/firstboot.xml /etc/YaST2/firstboot.xml.suse
+cp /etc/YaST2/firstboot.xml.kamarada /etc/YaST2/firstboot.xml
+touch /var/lib/YaST2/reconfig_system
+baseUpdateSysConfig /etc/sysconfig/firstboot FIRSTBOOT_WELCOME_DIR '/usr/share/firstboot/'
+
 # Use NetworkManager to configure the network at run-time
 systemctl -f disable wicked
 systemctl -f enable NetworkManager

@@ -69,6 +69,7 @@
     <package name='xf86-input-vmmouse'/>
     <package name='xf86-video-vmware'/>
     <package name='xfsprogs'/>
+    <package name='yast2-firstboot'/>
     <package name='yast2-trans-pt_BR'/>
   </packages>
   <packages type='bootstrap'>
