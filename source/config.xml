@@ -50,10 +50,15 @@
     <package name='kontact5'/>
     <package name='korganizer5'/>
     <package name='kwalletmanager5'/>
+    <package name='open-vm-tools'/>
     <package name='plymouth' bootinclude='true'/>
     <package name='plymouth-branding-openSUSE' bootinclude='true'/>
     <package name='sddm'/>
     <package name='shim' bootinclude='true'/>
+    <package name='virtualbox-guest-tools'/>
+    <package name='virtualbox-guest-x11'/>
+    <package name='xf86-input-vmmouse'/>
+    <package name='xf86-video-vmware'/>
     <package name='xfsprogs'/>
   </packages>
   <packages type='bootstrap'>
