@@ -37,13 +37,19 @@
     <namedCollection name='kde'/>
     <namedCollection name='laptop'/>
     <namedCollection name='x11'/>
+    <package name='MozillaFirefox-translations-common'/>
     <package name='akregator5'/>
     <package name='branding-openSUSE'/>
     <!-- workaround for bnc#892087 -->
     <package name='e2fsprogs' bootinclude='true'/>
     <package name='gfxboot-branding-openSUSE' bootinclude='true' bootdelete='true'/>
+    <package name='gimp-help-pt_BR'/>
     <package name='grub2-branding-openSUSE' bootinclude='true'/>
     <package name='gwenview5'/>
+    <package name='ispell-brazilian'/>
+    <package name='kde-l10n-pt_BR'/>
+    <package name='kde-l10n-pt_BR-data'/>
+    <package name='kde-l10n-pt_BR-doc'/>
     <package name='kdepim'/>
     <package name='kleopatra5'/>
     <package name='kmail5'/>
@@ -51,16 +57,19 @@
     <package name='kontact5'/>
     <package name='korganizer5'/>
     <package name='kwalletmanager5'/>
+    <package name='myspell-pt_BR'/>
     <package name='open-vm-tools'/>
     <package name='plymouth' bootinclude='true'/>
     <package name='plymouth-branding-openSUSE' bootinclude='true'/>
     <package name='sddm'/>
     <package name='shim' bootinclude='true'/>
+    <package name='translation-update-pt_BR'/>
     <package name='virtualbox-guest-tools'/>
     <package name='virtualbox-guest-x11'/>
     <package name='xf86-input-vmmouse'/>
     <package name='xf86-video-vmware'/>
     <package name='xfsprogs'/>
+    <package name='yast2-trans-pt_BR'/>
   </packages>
   <packages type='bootstrap'>
     <package name='filesystem'/>
