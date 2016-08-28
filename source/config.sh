@@ -96,6 +96,7 @@ systemctl -f disable sshd
 #======================================
 # /etc/sudoers hack to fix #297695
 # (Installation Live DVD: no need to ask for password of root)
+# https://bugzilla.novell.com/show_bug.cgi?id=297695
 #--------------------------------------
 sed -i -e "s/ALL ALL=(ALL) ALL/ALL ALL=(ALL) NOPASSWD: ALL/" /etc/sudoers
 chmod 0440 /etc/sudoers
@@ -107,6 +108,10 @@ passwd -d root
 passwd -d linux
 # empty password is ok
 pam-config -a --nullok
+
+# bug 544314, we only want to disable the bit in common-auth-pc
+# https://bugzilla.novell.com/show_bug.cgi?id=544314
+sed -i -e 's,^\(.*pam_gnome_keyring.so.*\),#\1,'  /etc/pam.d/common-auth-pc
 
 # Some KDE settings
 for script in /usr/share/opensuse-kiwi/live_user_scripts/*.sh; do
