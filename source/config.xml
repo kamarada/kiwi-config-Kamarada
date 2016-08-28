@@ -79,6 +79,7 @@
     <package name='module-init-tools'/>
   </packages>
   <packages type='delete'>
+    <package name='catdoc'/>
     <package name='kmix'/>
     <package name='kwalletmanager'/>
   </packages>
