@@ -44,6 +44,8 @@
     <package name='e2fsprogs' bootinclude='true'/>
     <package name='gfxboot-branding-openSUSE' bootinclude='true' bootdelete='true'/>
     <package name='gimp-help-pt_BR'/>
+    <package name='gparted'/>
+    <package name='gparted-lang'/>
     <package name='grub2-branding-openSUSE' bootinclude='true'/>
     <package name='gwenview5'/>
     <package name='hplip'/>
