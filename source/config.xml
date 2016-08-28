@@ -68,6 +68,9 @@
     <package name='translation-update-pt_BR'/>
     <package name='virtualbox-guest-tools'/>
     <package name='virtualbox-guest-x11'/>
+    <package name='wine'/>
+    <package name='wine-mono'/>
+    <package name='wine-gecko'/>
     <package name='xf86-input-vmmouse'/>
     <package name='xf86-video-vmware'/>
     <package name='xfsprogs'/>
@@ -97,5 +100,9 @@
   <!-- Printing -->
   <repository type='rpm-md'>
     <source path='http://download.opensuse.org/repositories/Printing/openSUSE_Leap_42.2/'/>
+  </repository>
+  <!-- Wine -->
+  <repository type='rpm-md'>
+    <source path='http://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Leap_42.1/'/><!-- TODO Use proper repository when available -->
   </repository>
 </image>
