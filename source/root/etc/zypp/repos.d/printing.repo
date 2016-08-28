@@ -1,0 +1,7 @@
+[printing]
+name=Printing
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/Printing/openSUSE_Leap_42.2/
+type=rpm-md
+keeppackages=0

@@ -46,6 +46,7 @@
     <package name='gimp-help-pt_BR'/>
     <package name='grub2-branding-openSUSE' bootinclude='true'/>
     <package name='gwenview5'/>
+    <package name='hplip'/>
     <package name='ispell-brazilian'/>
     <package name='kde-l10n-pt_BR'/>
     <package name='kde-l10n-pt_BR-data'/>
@@ -92,5 +93,9 @@
   <!-- openSUSE-Leap-42.2-Update -->
   <repository type='rpm-md'>
     <source path='http://download.opensuse.org/update/leap/42.2/oss/'/>
+  </repository>
+  <!-- Printing -->
+  <repository type='rpm-md'>
+    <source path='http://download.opensuse.org/repositories/Printing/openSUSE_Leap_42.2/'/>
   </repository>
 </image>
