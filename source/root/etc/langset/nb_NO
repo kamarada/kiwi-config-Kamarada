@@ -1,0 +1,14 @@
+RC_LANG: nb_NO.UTF-8
+CONSOLE_FONT: 
+CONSOLE_SCREENMAP: 
+CONSOLE_UNICODEMAP: 
+CONSOLE_MAGIC: 
+KEYTABLE: no.map.gz
+YAST_KEYBOARD: norwegian,pc104
+COMPOSETABLE: clear latin1.add
+TIMEZONE: Europe/Oslo
+CONSOLE_ENCODING: UTF-8
+Apply: -model microsoftpro -option terminate:ctrl_alt_bksp -layout no
+XkbLayout: no
+XkbModel: microsoftpro
+XkbOptions: terminate:ctrl_alt_bksp

@@ -1,0 +1,14 @@
+RC_LANG: ar_EG.UTF-8
+CONSOLE_FONT: 
+CONSOLE_SCREENMAP: 
+CONSOLE_UNICODEMAP: 
+CONSOLE_MAGIC: 
+KEYTABLE: arabic.map.gz
+YAST_KEYBOARD: arabic,pc104
+COMPOSETABLE: clear winkeys shiftctrl latin1.add
+TIMEZONE: Africa/Cairo
+CONSOLE_ENCODING: UTF-8
+Apply: -layout ara,us -option terminate:ctrl_alt_bksp,grp:shift_toggle -model pc105
+XkbLayout: ara,us
+XkbModel: pc105
+XkbOptions: terminate:ctrl_alt_bksp,grp:shift_toggle

@@ -1,0 +1,14 @@
+RC_LANG: cs_CZ.UTF-8
+CONSOLE_FONT: 
+CONSOLE_SCREENMAP: 
+CONSOLE_UNICODEMAP: 
+CONSOLE_MAGIC: 
+KEYTABLE: cz-us-qwertz.map.gz
+YAST_KEYBOARD: czech,pc104
+COMPOSETABLE: clear winkeys shiftctrl latin2
+TIMEZONE: Europe/Prague
+CONSOLE_ENCODING: UTF-8
+Apply: -layout cz,us -model pc105 -option terminate:ctrl_alt_bksp,grp:shifts_toggle,grp_led:scroll
+XkbLayout: cz,us
+XkbModel: pc105
+XkbOptions: terminate:ctrl_alt_bksp,grp:shifts_toggle,grp_led:scroll

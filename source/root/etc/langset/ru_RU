@@ -1,0 +1,15 @@
+RC_LANG: ru_RU.UTF-8
+CONSOLE_FONT: UniCyr_8x16.psf
+CONSOLE_SCREENMAP: none
+CONSOLE_UNICODEMAP: 
+CONSOLE_MAGIC: (K
+KEYTABLE: ruwin_alt-UTF-8.map.gz
+YAST_KEYBOARD: russian,pc104
+COMPOSETABLE: clear winkeys shiftctrl latin1.add
+TIMEZONE: Europe/Moscow
+CONSOLE_ENCODING: UTF-8
+Apply: -variant ,winkeys -layout us,ru -model pc105 -option terminate:ctrl_alt_bksp,grp:ctrl_shift_toggle,grp_led:scroll
+XkbLayout: us,ru
+XkbModel: pc105
+XkbOptions: terminate:ctrl_alt_bksp,grp:ctrl_shift_toggle,grp_led:scroll
+XkbVariant: ,winkeys
