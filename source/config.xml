@@ -64,6 +64,8 @@
     <package name='myspell-pt_BR'/>
     <package name='nano'/>
     <package name='open-vm-tools'/>
+    <package name='phonon-backend-vlc'/>
+    <package name='phonon4qt5-backend-vlc'/>
     <package name='plymouth' bootinclude='true'/>
     <package name='plymouth-branding-openSUSE' bootinclude='true'/>
     <package name='sddm'/>
@@ -71,6 +73,7 @@
     <package name='translation-update-pt_BR'/>
     <package name='virtualbox-guest-tools'/>
     <package name='virtualbox-guest-x11'/>
+    <package name='vlc'/>
     <package name='wine'/>
     <package name='wine-mono'/>
     <package name='wine-gecko'/>
