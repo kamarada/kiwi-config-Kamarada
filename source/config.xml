@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<image name='openSUSE-Leap-42.2-Beta1-KDE-Live' displayname='openSUSE_Leap_42.2_Beta1_KDE_Live' schemaversion='5.2'>
+<image name='openSUSE-Leap-42.2-Beta2-KDE-Live' displayname='openSUSE_Leap_42.2_Beta2_KDE_Live' schemaversion='5.2'>
   <description type='system'>
     <author>Projeto Linux Kamarada</author>
     <contact>linuxkamarada@gmail.com</contact>
@@ -97,7 +97,7 @@
   </packages>
   <!-- openSUSE-Leap-42.1-Oss -->
   <repository type='yast2'>
-    <source path='http://download.opensuse.org/distribution/leap/42.2/repo/oss/'/>
+    <source path='http://download.opensuse.org/distribution/leap/42.2-Beta2/repo/oss/'/>
   </repository>
   <!-- openSUSE-Leap-42.2-Update -->
   <repository type='rpm-md'>
