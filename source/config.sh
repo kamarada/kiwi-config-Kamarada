@@ -181,6 +181,14 @@ cp /etc/YaST2/firstboot.xml.kamarada /etc/YaST2/firstboot.xml
 touch /var/lib/YaST2/reconfig_system
 baseUpdateSysConfig /etc/sysconfig/firstboot FIRSTBOOT_WELCOME_DIR "/usr/share/firstboot/"
 
+# openSUSE Bug 984330 overlayfs requires AppArmor attach_disconnected flag
+# https://bugzilla.opensuse.org/show_bug.cgi?id=984330
+
+# Linux Kamarada issue #1 unable to ping
+# https://github.com/kamarada/kiwi-config-Kamarada/issues/1
+sed -i -e 's/\/{usr\/,}bin\/ping {/\/{usr\/,}bin\/ping (attach_disconnected) {/g' /etc/apparmor.d/bin.ping
+rcapparmor reload
+
 #======================================
 # Umount kernel filesystems
 #--------------------------------------
