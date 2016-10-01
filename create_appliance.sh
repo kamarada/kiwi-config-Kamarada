@@ -10,6 +10,7 @@
 # ============================================================================
 
 image_file='image/openSUSE-Leap-42.1-KDE-Live.x86_64-1.42.1.iso'
+new_image_name="openSUSE-Leap-42.1-KDE-Live.x86_64-$(date +%Y%m%d).iso"
 image_arch='x86_64'
 schema_ver='6.2'
 base_system='Leap_42.1'
@@ -129,7 +130,10 @@ mkdir -p $dst/build/image-root
 run_cmd "$kiwi --prepare $src --root $dst/build/image-root"
 umount -f -l $dst/build/image-root/sys
 run_cmd "$kiwi --create $dst/build/image-root --destdir $dst"
-sha256sum $image_file > $image_file.sha256
+mv $image_file image/$new_image_name
+cd image
+sha256sum *.iso > $new_image_name.sha256
+cd ..
 
 # And we're done!
 qemu_options='-snapshot'
@@ -137,9 +141,9 @@ qemu_options='-snapshot'
 [[ "$uefi_enabled" = "true" ]] && qemu_options="$qemu_options -bios /usr/share/qemu-ovmf/bios/bios.bin"
 
 echo
-echo "** Appliance created successfully! ($image_file)"
+echo "** Appliance created successfully! (image/$new_image_name)"
 echo "To boot the image using qemu-kvm, run the following command:"
-echo "  qemu-kvm -m 512 $qemu_options $image_file &"
+echo "  qemu-kvm -m 512 $qemu_options image/$new_image_name &"
 echo
 if [ "$uefi_enabled" = "true" ]
 then
