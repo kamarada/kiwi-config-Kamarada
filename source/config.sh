@@ -64,9 +64,9 @@ sed --in-place -e 's/# solver.onlyRequires.*/solver.onlyRequires = true/' /etc/z
 # Sysconfig Update
 #--------------------------------------
 echo '** Update sysconfig entries...'
-baseUpdateSysConfig /etc/sysconfig/keyboard KEYTABLE english-us
+#baseUpdateSysConfig /etc/sysconfig/keyboard KEYTABLE english-us
 baseUpdateSysConfig /etc/sysconfig/network/config FIREWALL yes
-baseUpdateSysConfig /etc/sysconfig/console CONSOLE_FONT lat9w-16.psfu
+#baseUpdateSysConfig /etc/sysconfig/console CONSOLE_FONT lat9w-16.psfu
 baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER_AUTOLOGIN linux
 baseUpdateSysConfig /etc/sysconfig/displaymanager DISPLAYMANAGER sddm
 baseUpdateSysConfig /etc/sysconfig/windowmanager DEFAULT_WM plasma5
