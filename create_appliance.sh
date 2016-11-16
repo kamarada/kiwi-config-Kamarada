@@ -9,8 +9,8 @@
 # Contact: feedback@susestudio.com
 # ============================================================================
 
-image_file='image/openSUSE-Leap-42.2-RC2-KDE-Live.x86_64-1.42.2.iso'
-new_image_name="openSUSE-Leap-42.2-RC2-KDE-Live.x86_64-$(date +%Y%m%d).iso"
+image_file='image/openSUSE-Leap-42.2-KDE-Live.x86_64-1.42.2.iso'
+new_image_name="openSUSE-Leap-42.2-KDE-Live.x86_64-$(date +%Y%m%d).iso"
 image_arch='x86_64'
 schema_ver='5.2'
 base_system='Leap_42.2'

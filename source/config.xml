@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<image name='openSUSE-Leap-42.2-RC2-KDE-Live' displayname='openSUSE_Leap_42.2_RC2_KDE_Live' schemaversion='5.2'>
+<image name='openSUSE-Leap-42.2-KDE-Live' displayname='openSUSE_Leap_42.2_KDE_Live' schemaversion='5.2'>
   <description type='system'>
     <author>Projeto Linux Kamarada</author>
     <contact>linuxkamarada@gmail.com</contact>
@@ -54,6 +54,7 @@
     <package name='kde-l10n-pt_BR-data'/>
     <package name='kde-l10n-pt_BR-doc'/>
     <package name='kdepim'/>
+    <package name='kfind'/>
     <package name='kleopatra5'/>
     <package name='kmail5'/>
     <package name='knotes5'/>
@@ -98,7 +99,7 @@
   </packages>
   <!-- openSUSE-Leap-42.2-Oss -->
   <repository type='yast2'>
-    <source path='http://download.opensuse.org/distribution/leap/42.2-Current/repo/oss/'/>
+    <source path='http://download.opensuse.org/distribution/leap/42.2/repo/oss/'/>
   </repository>
   <!-- openSUSE-Leap-42.2-Update -->
   <repository type='rpm-md'>
@@ -110,6 +111,6 @@
   </repository>
   <!-- Wine -->
   <repository type='rpm-md'>
-    <source path='http://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Leap_42.1/'/><!-- TODO Use proper repository when available -->
+    <source path='http://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Leap_42.2/'/>
   </repository>
 </image>
